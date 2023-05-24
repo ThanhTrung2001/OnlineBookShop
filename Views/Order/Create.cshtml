@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_UserLayout";
+}
+
+<div class="order-container">
+    <div class="order-user-information-container">
+        <div class="order-address-path">
+            <div class="order-address-label">Address</div>
+            <select name="address" id="product-address" class="order-address-select-box">
+                <option value="type0" selected>None</option>
+            </select>
+        </div>
+    </div>
+    <div class="order-user-information-container">
+        <div class="order-address-path">
+            <div class="order-address-label">Purchase</div>
+            <select name="purchasetype" id="purchase-type" class="order-address-select-box">
+                <option value="OnlineBanking" selected>Online Banking</option>
+                <option value="PayWhenReceive">Pay When Receive</option>
+            </select>
+        </div>
+    </div>
+    <div class="order-user-information-container">
+        <div class="order-total-path">
+                <div class="order-address-label">Total</div>
+                <div>100000.00 đ</div>
+        </div>
+    </div>
+    <div class="detail-button">
+        <button class="detail-cart-button">Confirm</button>
+        <button class="detail-buy-button">Cancel</button>
+    </div>
+</div>

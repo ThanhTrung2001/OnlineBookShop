@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookShopProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard/sidebar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard/dashboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index-body/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/partial/partial-index-item.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/partial/create.css" asp-append-version="true" />
+</head>
+<body class="body">
+    <div class="left-section">
+        <nav class="sidebar-navigation">
+            <div class="close-sidebar-navigation">
+                <div class="sidebar-title">Bookshop</div>
+            </div>
+            <ul class="sidebar-navigation-list">
+                <li class="sidebar-link">
+                    <a style="color:white;" asp-controller="Dashboard" asp-action="Index">
+                        <img class="sidebar-link-icon" src="/icons/dashboard_64px.png" />
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <img class="sidebar-link-icon" src="/icons/product_64px.png" />
+                    Catalog
+                </li>
+                <li class="subsidebar-link">
+                    <a asp-controller="Book" asp-action="Index">Book List</a>
+                </li>
+                <li class="subsidebar-link">
+                    <a asp-controller="BookType" asp-action="Index">Category List</a>
+                </li>
+                <li class="subsidebar-link">
+                    <a asp-controller="Author" asp-action="Index">Author List</a>
+                </li>
+                <li class="sidebar-link">
+                    <a style="color:white;" asp-controller="Dashboard" asp-action="Index">
+                        <img class="sidebar-link-icon" src="/icons/Mine Cart_128px.png" />
+                        Import
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <a style="color:white;" asp-controller="Dashboard" asp-action="Index">
+                        <img class="sidebar-link-icon" src="/icons/fingerprint_64px.png" />
+                        Order
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <a style="color:white;" asp-controller="Account" asp-action="Index">
+                        <img class="sidebar-link-icon" src="/icons/search_client_64px.png" />
+                        Customer
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <a style="color:white;" asp-controller="Staff" asp-action="Index">
+                        <img class="sidebar-link-icon" src="/icons/staff_64px.png" />
+                        Staff
+                    </a>
+                </li>
+                <li class="sidebar-link">
+                    <img class="sidebar-link-icon" src="/icons/logout_rounded_down_64px.png" />
+                    Log out
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="right-section">
+        <header class="header">
+            <div class="left-header-section">
+                <input class="search-header-bar" placeholder="Search" type="text" />
+                <img class="search-header-icon" src="/icons/search_100px.png" />
+            </div>
+            <div class="right-header-section">
+                <img class="avatar-header" src="/images/75150646.jpg" />
+                <div class="user-header-info">
+                    <div class="user-header-name">Name</div>
+                    <div class="user-header-email">name@gmail.com</div>
+                </div>
+            </div>
+        </header>
+        <div class="body">
+            <main class="main-body" role="main">
+                @RenderBody()
+            </main>
+        </div>
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2023 - BookShopProject - <a asp-area="" asp-controller="Dashboard" asp-action="Index">Home</a>
+            </div>
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

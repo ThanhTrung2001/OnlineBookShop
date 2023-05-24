@@ -1,0 +1,51 @@
+﻿@model User
+
+<div class="login-dialog-container">
+    <div class="login-dialog">
+        <div class="login-dialog-content">
+            <div class="login-input-path">
+                <div class="login-big-title">Sign Up</div>
+                <div class="login-sub-title">Register a new account for you.</div>
+                <div class="register-container">
+                    <div>
+                        <div class="login-input-container">
+                            <label asp-for="Email" class="label-input">Email Address</label>
+                            <input asp-for="Email" class="form-control field-input" type="email" />
+                        </div>
+                        <div class="login-input-container">
+                            <label asp-for="Password" class="label-input">Password</label>
+                            <input asp-for="Password" class="form-control" type="password" />
+                        </div>
+                        <div class="login-input-container">
+                            <label class="label-input">Retype Password</label>
+                            <input class="form-control" type="password" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="login-input-container">
+                            <label asp-for="Phone" class="label-input">Phone</label>
+                            <input asp-for="Phone" class="form-control" />
+                        </div>
+                        <div class="login-input-container">
+                            <label asp-for="Address" class="label-input">Address</label>
+                            <input asp-for="Address" class="form-control"/>
+                        </div>
+                        <div class="login-input-container">
+                            <label asp-for="UserName" class="label-input">UserName</label>
+                            <input asp-for="UserName" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <button class="login-button">Sign Up</button>
+            </div>
+            <div class="login-divider-path">
+                <div class="solid-divider"></div>
+                <div>Or</div>
+                <div class="solid-divider"></div>
+            </div>
+            <div class="login-signup-path">
+                Already have an account? &nbsp; <a asp-controller="Session" asp-action="Login">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

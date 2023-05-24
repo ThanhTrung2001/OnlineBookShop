@@ -1,0 +1,94 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model IEnumerable<Book>
+
+<div class="product-list-content-continer">
+    <div class="product-list-top-section">
+        <div class="product-list-breadcumb">
+            <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+            <div> &nbsp; /&nbsp; Books</div>
+        </div>
+        <div class="product-list-title-container">
+            <div class="product-list-title">
+                Products
+            </div>
+            <div class="product-list-create-section">
+                <form asp-controller="Book" asp-action="Create" method="get">
+                    <button class="product-list-create-button">New Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-bottom-section">
+
+        <div class="product-list-showing-section">
+            <div class="product-list-filter-bar">
+                <input type="text" name="ProductNameSearch" class="product-search-name-path" placeholder="Search..." />
+                <select name="productype" id="product-type" class="product-search-type-path">
+                    <option value="type0" selected>None</option>
+                    @foreach (var bookType in ViewBag.BookType)
+                    {
+                        <option value="@bookType.BookTypeID">@bookType.TypeName</option>
+                    }
+                </select>
+                <select name="productauthor" id="product-author" class="product-search-author-path">
+                    <option value="author0" selected>None</option>
+                    @foreach (var bookAuthor in ViewBag.BookAuthor)
+                    {
+                        <option value="@bookAuthor.AuthorID">@bookAuthor.AuthorName</option>
+                    }
+                </select>
+                <div class="product-search-submit-path">
+                    <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
+                    <input type="submit" class="product-search-submit-button" value="Search">
+                </div>
+            </div>
+            <div class="product-list-showing-container">
+                <div class="product-list-table-scroll">
+                    <table class="product-list-showing">
+                        <thead>
+                            <tr role="row">
+                                <th class="product-id-showing">Id</th>
+                                <th class="product-name-showing">Name</th>
+                                <th class="product-author-showing">Author</th>
+                                <th class="product-type-showing">Type</th>
+                                <th class="product-number-showing">NumberLeft</th>
+                                <th class="product-price-showing">Price</th>
+                                <th class="product-action-showing"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var book in Model)
+                            {
+                                <tr class="body-row">
+                                    <td class="product-id-showing">@book.BookID</td>
+                                    <td class="product-name-showing">
+                                        <img class="product-image-showing" src="@book.ImageLink" />
+                                        @book.Title
+                                    </td>
+                                    <td class="product-author-showing">@book.AuthorID</td>
+                                    <td class="product-type-showing">@book.BookTypeID</td>
+                                    <td class="product-number-showing">@book.Stock</td>
+                                    <td class="product-price-showing">@book.Price</td>
+                                    <td class="product-action-showing">
+                                        <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
+                                        <ul class="product-action-dropdown-menu">
+                                            <li class="dropdown-item"><a asp-controller="Book" asp-action="Edit" asp-route-id="@book.BookID">Edit</a></li>
+                                            <form asp-action="Delete" asp-route-id="@book.BookID">
+                                            <li class="dropdown-item">
+                                                <button class="delete-dropdown" type="submit">Delete</button>
+                                            </li>
+                                            </form>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

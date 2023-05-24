@@ -1,0 +1,44 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto;
+    background-color: #E6E8EB;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 30px;
+    background-color: rgb(245,247,250);
+    min-height: 91vh;
+}
+
+.user-body {
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    background-color: rgb(245,247,250);
+}

@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_UserLayout";
+}
+@model IEnumerable<Book>
+
+<div class="book-container">
+    @foreach(var book in Model)
+    {
+        <partial name="User/_Book" model="@book"></partial>
+    }
+</div>
+
+
+

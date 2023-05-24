@@ -1,0 +1,202 @@
+﻿cart-container{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
+
+.cart-top-title{
+    display:flex;
+    text-align:center;
+    justify-content:center;
+    font-weight:600;
+    font-size:30px;
+}
+
+.cart-bottom-container{
+    display:flex;
+    flex-direction:row;
+    padding-top:20px;
+}
+
+
+.cart-item-container-left {
+    flex: 1;
+    display: flex;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.cart-table-showing {
+    
+}
+
+.product-list-showing {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #DADBDC;
+    border-radius:5px;
+}
+
+.product-list-showing tr {
+    display: flex;
+    padding: 0 10px;
+    height: 40px;
+    align-items: center;
+    margin-bottom:10px;
+}
+
+.cart-head {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #DADBDC;
+}
+
+.cart-body{
+
+}
+
+    .product-list-showing .product-image-showing {
+        flex: 1;
+    }
+    .product-list-showing .product-name-showing {
+        flex: 3;
+    }
+
+    .product-list-showing .product-price-showing {
+        flex: 2;
+    }
+
+    .product-list-showing .product-number-showing {
+        flex: 2;
+    }
+
+        .product-list-showing .product-number-showing input {
+            width: 30px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #DADBDC;
+        }
+
+        .product-list-showing .product-number-showing button {
+            width: 30px;
+            text-align: center;
+            font-weight: 700;
+            border-radius: 5px;
+            color: white;
+            background-color: #C92127;
+            border: 1px solid black;
+        }
+
+    .product-list-showing .product-action-showing {
+        flex: 0.5;
+    }
+
+        .product-list-showing .product-action-showing button{
+            border:none;
+            background-color:transparent;
+        }
+
+            .product-list-showing .product-action-showing button img{
+                height:25px;
+            }
+
+
+.cart-discount-input-right {
+    display: flex;
+    flex-direction:column;
+    width: 300px;
+}
+
+.cart-discount-path, .cart-total-path{
+    display:flex;
+    background-color:white;
+    border-radius: 5px;
+    border: 1px solid #DADBDC;
+    padding-bottom: 15px;
+    justify-content:center;
+}
+
+.cart-discount-path{
+    display:flex;
+    flex-direction:column;
+    padding: 20px;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+    .cart-discount-path .discount-path-title{
+        font-weight:700;
+        font-size:25px;
+        margin-bottom:15px;
+    }
+
+    .cart-discount-path input {
+        height: 35px;
+        border-radius: 5px;
+        text-align: center;
+        border: 2px solid #DADBDC;
+    }
+
+    .cart-discount-path button {
+        margin-top: 15px;
+        text-align: center;
+        padding:5px 20px;
+        font-weight: 500;
+        border-radius: 5px;
+        color: white;
+        background-color: #C92127;
+        border: 1px solid black;
+    }
+
+.cart-money-path {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #DADBDC;
+    border-radius: 5px;
+}
+
+.cart-cost-path {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.cart-discount-percent-path {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #DADBDC;
+    color: #C92127;
+}
+
+.cart-total-money-path {
+    padding-top:20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.cart-button-purchase-path{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+    .cart-button-purchase-path button {
+        text-align: center;
+        padding: 8px 22px;
+        font-size:25px;
+        font-weight: 500;
+        border-radius: 5px;
+        color: white;
+        background-color: #C92127;
+        border: 1px solid black;
+    }
+

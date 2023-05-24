@@ -1,0 +1,21 @@
+﻿@model CartItem
+
+<tr class="cart-body">
+    <td class="product-image-showing">
+        <img class="product-image-showing" src="https://i.imgur.com/qywe4pq.jpg" style="height:25px;" />
+    </td>
+    <td class="product-name-showing">Name</td>
+    <td class="product-price-showing">10.000 đ</td>
+    <td class="product-number-showing">
+        <button>-</button>
+        <input type="text" value="1">
+        <button>+</button>
+    </td>
+    <td class="product-action-showing">
+        <form asp-controller="Cart" asp-action="Delete">
+            <button>
+                <img src="/icons/trash_48px.png" />
+            </button>
+        </form>
+    </td>
+</tr>

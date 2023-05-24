@@ -1,0 +1,154 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model Book
+
+
+<div class="product-view-content-container">
+    <div class="product-list-breadcumb">
+        <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+        <div> &nbsp; /&nbsp;  <a asp-controller="Book" asp-action="IndexPage">Books</a> &nbsp; /&nbsp; View</div>
+    </div>
+    @if (Model == null)
+    {
+        <form asp-action="Create">
+            <div class="product-view-title-container">
+                <div class="product-list-title">Edit Book</div>
+                <div class="product-list-create-section">
+                    <button asp-controller="Book" asp-action="Index" class="product-cancel-button">Cancel</button>
+                    <button class="product-save-button" type="submit">Save</button>
+                </div>
+            </div>
+            <div class="product-view-bottom-section">
+                <div class="product-view-showing-section">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group form-select-type">
+                        <label asp-for="BookTypeID" class="form-label">Type</label>
+                        <select asp-for="BookTypeID" id="product-type" class="product-search-type-path">
+                            @foreach (var bookType in ViewBag.BookType)
+                            {
+                                <option value="@bookType.BookTypeID">@bookType.TypeName</option>
+                            }
+                        </select>
+                        <label asp-for="AuthorID" class="form-label">Author</label>
+                        <select asp-for="AuthorID" id="product-author" class="product-search-author-path">
+                            @foreach (var bookAuthor in ViewBag.BookAuthor)
+                            {
+                                <option value="@bookAuthor.AuthorID">@bookAuthor.AuthorName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Image</label>
+                        <input asp-for="ImageLink" class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="product-view-row">
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Stock" class="control-label"></label>
+                            <input asp-for="Stock" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-check form-switch form-group">
+                        <input asp-for="IsSale" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Is Sale</label>
+                    </div>
+                    <div class="form-group" style="width:300px;">
+                        <label asp-for="SalePercent" class="control-label"></label>
+                        <input asp-for="SalePercent" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    else
+    {
+        <form asp-action="Edit">
+            <div class="product-view-title-container">
+                <div class="product-list-title">Edit Book</div>
+                <div class="product-list-create-section">
+                    <button asp-controller="Book" asp-action="Index" class="product-cancel-button">Cancel</button>
+                    <button class="product-save-button" type="submit">Save</button>
+                </div>
+            </div>
+            <div class="product-view-bottom-section">
+                <div class="product-view-showing-section">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group form-select-type">
+                        <label asp-for="BookTypeID" class="form-label">Type</label>
+                        <select asp-for="BookTypeID" id="product-type" class="product-search-type-path">
+                            @foreach (var bookType in ViewBag.BookType)
+                            {
+                                if (bookType.BookTypeID == Model.BookTypeID)
+                                {
+                                    <option value="@bookType.BookTypeID" selected>@bookType.TypeName</option>
+                                }
+                                else
+                                {
+                                    <option value="@bookType.BookTypeID">@bookType.TypeName</option>
+                                }
+                            }
+                        </select>
+                        <label asp-for="AuthorID" class="form-label">Author</label>
+                        <select asp-for="AuthorID" id="product-author" class="product-search-author-path">
+                            @foreach (var bookAuthor in ViewBag.BookAuthor)
+                            {
+                                if (bookAuthor.AuthorID == Model.AuthorID)
+                                {
+                                    <option value="@bookAuthor.AuthorID" selected>@bookAuthor.AuthorName</option>
+                                }
+                                else
+                                {
+                                    <option value="@bookAuthor.AuthorID">@bookAuthor.AuthorName</option>
+                                }
+
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Image</label>
+                        <input asp-for="ImageLink" class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="product-view-row">
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Stock" class="control-label"></label>
+                            <input asp-for="Stock" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-check form-switch form-group">
+                        <input asp-for="IsSale" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Is Sale</label>
+                    </div>
+                    <div class="form-group" style="width:300px;">
+                        <label asp-for="SalePercent" class="control-label"></label>
+                        <input asp-for="SalePercent" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+</div>
+

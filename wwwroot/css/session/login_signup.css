@@ -1,0 +1,102 @@
+﻿a {
+    text-decoration: none;
+}
+
+.login-dialog-container {
+    flex:1;
+    display: flex;
+    justify-content: center;
+}
+
+.login-dialog {
+    display: flex;
+    min-width: 400px;
+    background-color: white;
+    box-shadow: 0 1px 3px #00000026;
+    border-radius: 3px;
+}
+
+.login-dialog-content {
+    width: 100%;
+    padding: 20px 20px;
+}
+
+.login-input-path {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-big-title {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.login-sub-title {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: rgb(156,162,168);
+    margin-bottom: 25px;
+}
+
+.label-input, .field-input {
+    margin-bottom: 7px;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+.field-input {
+    width: 100%;
+}
+
+.login-input-container {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.login-forgot-password {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: end;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.login-button {
+
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    padding: 6px 0;
+    background-color: rgb(255,211,51);
+    border-radius: 3px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.login-divider-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: rgb(187,187,187);
+}
+
+.solid-divider {
+    flex: 1;
+    margin: 0 10px;
+    border-top: 3px solid rgb(187,187,187);
+}
+
+.login-signup-path {
+    display: flex;
+    justify-content: center;
+}
+
+.register-container{
+    display:flex;
+}

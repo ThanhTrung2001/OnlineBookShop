@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model IEnumerable<Author>
+
+<div class="product-list-content-continer">
+    <div class="product-list-top-section">
+        <div class="product-list-breadcumb">
+            <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+            <div> &nbsp; /&nbsp; Authors</div>
+        </div>
+        <div class="product-list-title-container">
+            <div class="product-list-title">
+                Authors
+            </div>
+            <div class="product-list-create-section">
+                <form asp-controller="Author" asp-action="Create">
+                    <button class="product-list-create-button" type="submit">New Author</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-bottom-section">
+        <div class="author-list-showing-section">
+            <div class="product-list-filter-bar">
+                <input type="text" name="ProductNameSearch" class="product-search-name-path" placeholder="Search..." />
+                <div class="product-search-submit-path">
+                    <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
+                    <input type="submit" class="product-search-submit-button" value="Search">
+                </div>
+            </div>
+            <div class="product-list-showing-container">
+                <div class="product-list-table-scroll">
+                    <table class="product-list-showing">
+                        <thead>
+                            <tr role="row">
+                                <th class="product-id-showing">Id</th>
+                                <th class="product-name-showing">Name</th>
+                                <th class="product-number-showing">Number</th>
+                                <th class="product-action-showing"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var author in Model)
+                            {
+                                <tr class="body-row">
+                                    <td class="product-id-showing"> @author.AuthorID</td>
+                                    <td class="product-name-showing">
+                                        @author.AuthorName
+                                    </td>
+                                    <td class="product-number-showing">
+                                        1
+                                    </td>
+                                    <td class="product-action-showing">
+                                        <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
+                                        <ul class="product-action-dropdown-menu">
+                                            <li class="dropdown-item"><a asp-controller="Author" asp-action="Edit" asp-route-id="@author.AuthorID">Edit</a></li>
+                                            <form asp-action="Delete" asp-route-id="@author.AuthorID">
+                                            <li class="dropdown-item">
+                                                <button class="delete-dropdown" type="submit">Delete</button>
+                                            </li>
+                                            </form>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,145 @@
+﻿.book-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
+.detail-top-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.detail-top-section__left {
+    flex:2;
+    display: flex;
+}
+
+.detail-img{
+    height:400px;
+}
+
+.detail-top-section__right{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.detail-name-container {
+    display: flex;
+    margin-bottom: 30px;
+    align-items:center;
+    justify-content:center;
+}
+
+.detail-name {
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 15px;
+}
+
+.detail__is-sale {
+    font-size: 16px;
+    font-weight: 700;
+    border-radius:8px;
+    border:none;
+    color:white;
+    background-color: indianred;
+    padding: 0 5px;
+}
+
+.detail-property-container{
+    display:flex;
+    justify-content:center;
+}
+
+.detail-property{
+    font-size:15px;
+    font-weight:500;
+    display:flex;
+    width:350px;
+    justify-content:space-between;
+    margin-bottom: 15px;
+}
+
+.price-and-amount-container{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+
+.detail-price {
+    font-size: 30px;
+    font-weight: 700;
+    margin-right:50px;
+}
+
+.detail-amount-container {
+    display:flex;
+}
+
+.detail-amount {
+    display: flex;
+    border-radius: 5px;
+    justify-content:center;
+    align-content:center;
+    border: 3px solid black;
+}
+
+.detail-plus-button, .detail-minus-button {
+    display:inline;
+    border: none;
+    background-color: transparent;
+    margin: 0px 5px;
+}
+
+.detail-plus-icon, .detail-minus-icon {
+    height: 20px;
+    padding-bottom:3px;
+}
+
+.detail-amount-number {
+    border: none;
+    width: 30px;
+    text-align: center;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.detail-button {
+    display: flex;
+    height: 50px;
+}
+
+.detail-cart-button {
+    border: 2px solid rgb(201,33,39);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: transparent;
+    color: rgb(201,33,39);
+    margin-right:20px;
+    flex:1;
+}
+
+.detail-buy-button {
+    border: 2px solid rgb(201,33,39);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: rgb(201,33,39);
+    color: white;
+    width: 200px;
+}
+

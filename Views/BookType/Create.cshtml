@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model BookType
+
+<div class="product-view-content-container">
+    <div class="product-list-breadcumb">
+        <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+        <div> &nbsp; /&nbsp;  <a asp-controller="Category" asp-action="Index">Categories</a> &nbsp; /&nbsp; View</div>
+    </div>
+    @if (Model == null)
+    {
+        <form asp-action="Create">
+            <div class="product-view-title-container">
+                <div class="product-list-title">Create Category</div>
+                <div class="product-list-create-section">
+                    <button class="product-cancel-button" asp-action="Index">Cancel</button>
+                    <button class="product-save-button" type="submit">Save</button>
+                </div>
+            </div>
+            <div class="form-type-section">
+                <div class="product-view-showing-section">
+                    <div class="form-group">
+                        <label asp-for="TypeName" class="control-label">Type's Name</label>
+                        <input asp-for="TypeName" class="form-control" />
+                        <span asp-validation-for="TypeName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+    else
+    {
+        <form asp-action="Edit">
+            <div class="product-view-title-container">
+                <div class="product-list-title">Edit Category</div>
+                <div class="product-list-create-section">
+                    <button class="product-cancel-button" asp-action="Index">Cancel</button>
+                    <button class="product-save-button" type="submit">Save</button>
+                </div>
+            </div>
+            <div class="form-type-section">
+                <div class="product-view-showing-section">
+                    <div class="form-group">
+                        <label asp-for="TypeName" class="control-label">Type's Name</label>
+                        <input asp-for="TypeName" class="form-control">
+                        <span asp-validation-for="TypeName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+
+</div>
+
+
+

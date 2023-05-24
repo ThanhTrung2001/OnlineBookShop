@@ -1,0 +1,38 @@
+﻿.order-container {
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    justify-content:center;
+}
+
+.order-user-information-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: start;
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #DADBDC;
+    border-radius: 5px;
+    margin-bottom:30px;
+    justify-content:center;
+}
+    .order-user-information-container .order-address-label {
+        margin-right: 35px;
+    }
+
+.order-address-select-box {
+    width:620px;
+    display:flex;
+    text-align: center;
+    border: 1px solid #DADBDC;
+    border-radius: 5px;
+}
+
+.order-address-path, .order-total-path {
+    display: flex;
+    flex-direction: row;
+}
+
+
+

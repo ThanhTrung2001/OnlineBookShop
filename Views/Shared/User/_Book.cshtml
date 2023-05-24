@@ -1,0 +1,41 @@
+﻿@model Book
+
+<div class="book-preview">
+    <a asp-controller="Home" asp-action="Detail" asp-route-id="@Model.BookID">
+        <div class="book-img-container">
+            <img class="book-img-preview" src="@Model.ImageLink" />
+            @if(Model.IsSale != false)
+            {
+                <div class="book-sale-preview">@Model.SalePercent</div>
+            }
+            
+        </div>
+    </a>
+    <div class="book-detail-preview">
+        <div class="book-name-preview">
+            @Model.Title
+        </div>
+        <div class="book-price-container">
+            @if (Model.IsSale == false)
+            {
+                <div class="book-price-preview">
+                    @Model.Price
+                </div>
+            }
+            else
+            {
+                var newPrice = Model.Price * (100 - Model.SalePercent) / 100;
+                <div class="book-price-preview">
+                    @newPrice
+                </div>
+            }
+            <div class="book-price-unit-preview">
+                đ
+            </div>
+        </div>
+        <div class="book-button-container">
+            <button class="book-cart-button-preview">Add To Cart</button>
+            <button class="book-buy-button-preview">Buy</button>
+        </div>
+    </div>
+</div>

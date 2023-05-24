@@ -1,0 +1,69 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model IEnumerable<User>
+
+<div class="product-list-content-continer">
+    <div class="product-list-top-section">
+        <div class="product-list-breadcumb">
+            <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+            <div> &nbsp; /&nbsp; Accounts</div>
+        </div>
+        <div class="product-list-title-container">
+            <div class="product-list-title">
+                Accounts
+            </div>
+            <div class="product-list-create-section">
+                <button class="product-list-create-button">New Product</button>
+            </div>
+        </div>
+    </div>
+    <div class="product-list-bottom-section">
+        <div class="product-list-showing-section">
+            <div class="product-list-filter-bar">
+                <input type="text" name="ProductNameSearch" class="product-search-name-path" placeholder="Search..." />
+                <div class="product-search-submit-path">
+                    <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
+                    <input type="submit" class="product-search-submit-button" value="Search">
+                </div>
+            </div>
+            <div class="product-list-showing-container">
+                <div class="product-list-table-scroll">
+                    <table class="product-list-showing">
+                        <thead>
+                            <tr role="row">
+                                <th class="product-id-showing">Id</th>
+                                <th class="product-name-showing">Name</th>
+                                <th class="product-author-showing">Email</th>
+                                <th class="product-number-showing">Phone</th>
+                                <th class="product-action-showing"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach(var user in Model)
+                            {
+                                <tr class="body-row">
+                                    <td class="product-id-showing">@user.UserID</td>
+                                    <td class="product-name-showing"> @user.UserName</td>
+                                    <td class="product-author-showing">@user.Email</td>
+                                    <td class="product-number-showing">@user.Phone</td>
+                                    <td class="product-action-showing">
+                                        <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
+                                        <ul class="product-action-dropdown-menu">
+                                            <li class="dropdown-item"><a asp-controller="Account" asp-action="Create">View</a></li>
+                                            <li class="dropdown-item"><a asp-controller="Account" asp-action="Edit">Edit</a></li>
+                                            <li class="dropdown-item"><a asp-controller="Account" asp-action="Delete" asp-method="">Delete</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
