@@ -1,6 +1,8 @@
 ﻿cart-container{
+    padding:20px;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
+    justify-content:center;
     width:100%;
 }
 
@@ -15,7 +17,8 @@
 .cart-bottom-container{
     display:flex;
     flex-direction:row;
-    padding-top:20px;
+    padding:20px 30px;
+    justify-content:space-between;
 }
 
 
@@ -39,13 +42,13 @@
     border-radius:5px;
 }
 
-.product-list-showing tr {
-    display: flex;
-    padding: 0 10px;
-    height: 40px;
-    align-items: center;
-    margin-bottom:10px;
-}
+    .product-list-showing tr {
+        display: flex;
+        padding: 0 10px;
+        height: 40px;
+        align-items: center;
+        margin-bottom:10px;
+    }
 
 .cart-head {
     margin-bottom: 10px;

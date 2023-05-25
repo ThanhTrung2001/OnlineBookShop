@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model User
+
+<div class="product-view-content-container">
+    <div class="product-list-breadcumb">
+        <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+        <div> &nbsp; /&nbsp;  <a asp-controller="Account" asp-action="Index">Customers</a> &nbsp; /&nbsp; Edit</div>
+    </div>
+    <form asp-action="Edit">
+        <div class="product-view-title-container">
+            <div class="product-list-title">Edit Customer</div>
+            <div class="product-list-create-section">
+                <button class="product-cancel-button" asp-action="Index">Cancel</button>
+                <button class="product-save-button" type="submit">Save</button>
+            </div>
+        </div>
+        <div class="product-view-bottom-section">
+            <div class="product-view-showing-section">
+                <input type="hidden" asp-for="UserID" />
+                <input type="hidden" asp-for="UserType"/>
+                <input type="hidden" asp-for="AddressDefaultID" />
+                <input type="hidden" asp-for="Addresses" />
+                <input type="hidden" asp-for="Carts" />
+                <input type="hidden" asp-for="Orders" />
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="product-view-row">
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CitizenID" class="control-label"></label>
+                        <input asp-for="CitizenID" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

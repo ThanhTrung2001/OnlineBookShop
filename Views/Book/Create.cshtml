@@ -13,7 +13,7 @@
     {
         <form asp-action="Create">
             <div class="product-view-title-container">
-                <div class="product-list-title">Edit Book</div>
+                <div class="product-list-title">Create Book</div>
                 <div class="product-list-create-section">
                     <button asp-controller="Book" asp-action="Index" class="product-cancel-button">Cancel</button>
                     <button class="product-save-button" type="submit">Save</button>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Image</label>
-                        <input asp-for="ImageLink" class="form-control" type="file" id="formFile">
+                        <input asp-for="ImageLink" class="form-control" type="text" id="formFile">
                     </div>
                     <div class="product-view-row">
                         <div class="form-group">
@@ -84,6 +84,7 @@
             </div>
             <div class="product-view-bottom-section">
                 <div class="product-view-showing-section">
+                    <input type="hidden" asp-for="BookID" />
                     <div class="form-group">
                         <label asp-for="Title" class="control-label"></label>
                         <input asp-for="Title" class="form-control" />
@@ -126,7 +127,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Image</label>
-                        <input asp-for="ImageLink" class="form-control" type="file" id="formFile">
+                        <input asp-for="ImageLink" class="form-control" type="text" id="formFile">
                     </div>
                     <div class="product-view-row">
                         <div class="form-group">

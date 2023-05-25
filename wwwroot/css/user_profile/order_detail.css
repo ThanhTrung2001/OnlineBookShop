@@ -1,0 +1,60 @@
+﻿.user-order-item-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DADBDC;
+}
+
+.user-order-info-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+    .user-order-info-detail .user-order-status {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin-bottom:20px;
+    }
+
+.user-order-item-list {
+    list-style:none;
+}
+
+.user-order-item-image{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.user-order-name-number{
+    font-size:15px;
+    font-weight:400;
+}
+
+.user-order-price-path{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.user-order-total-path {
+    display:flex;
+    flex-direction:column;
+    align-items:end
+}
+
+.user-order-total-path div{
+    padding-bottom:15px;
+}
+
+.user-order-total-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-order-total-row{
+    font-size:17px;
+    font-weight:500;
+}

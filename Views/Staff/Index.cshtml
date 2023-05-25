@@ -1,20 +1,22 @@
 ﻿@{
     Layout = "_AdminLayout";
 }
-@model IEnumerable<User>
+@model IEnumerable<Staff>
 
 <div class="product-list-content-continer">
     <div class="product-list-top-section">
         <div class="product-list-breadcumb">
             <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-            <div> &nbsp; /&nbsp; Customers</div>
+            <div> &nbsp; /&nbsp; Staffs</div>
         </div>
         <div class="product-list-title-container">
             <div class="product-list-title">
-                Accounts
+                Staff Accounts
             </div>
             <div class="product-list-create-section">
-               
+                <form asp-action="Create">
+                    <button class="product-list-create-button">New Staff's Account</button>
+                </form>
             </div>
         </div>
     </div>
@@ -35,25 +37,27 @@
                                 <th class="product-id-showing">Id</th>
                                 <th class="product-name-showing">Name</th>
                                 <th class="product-author-showing">Email</th>
-                                <th class="product-number-showing">Phone</th>
-                                <th class="product-number-showing">CitizenID</th>
+                                <th class="product-author-showing">CitizenID</th>
+                                <th class="product-author-showing">ContractDate</th>
+                                <th class="product-number-showing">ContractEnd</th>
                                 <th class="product-action-showing"></th>
                             </tr>
                         </thead>
                         <tbody>
-                           @foreach(var user in Model)
+                            @foreach (var staff in Model)
                             {
                                 <tr class="body-row">
-                                    <td class="product-id-showing">@user.UserID</td>
-                                    <td class="product-name-showing"> @user.UserName</td>
-                                    <td class="product-author-showing">@user.Email</td>
-                                    <td class="product-number-showing">@user.Phone</td>
-                                    <td class="product-number-showing">@user.CitizenID</td>
+                                    <td class="product-id-showing">@staff.StaffID</td>
+                                    <td class="product-name-showing"> @staff.UserName</td>
+                                    <td class="product-author-showing">@staff.Email</td>
+                                    <td class="product-author-showing">@staff.CitizenID</td>
+                                    <td class="product-author-showing">@staff.ContractStartDate.ToString("dd/M/yyyy")</td>
+                                    <td class="product-number-showing">@staff.ContractEndDate.Date.ToString("dd/M/yyyy")</td>
                                     <td class="product-action-showing">
                                         <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
                                         <ul class="product-action-dropdown-menu">
-                                            <li class="dropdown-item"><a asp-controller="Account" asp-action="Edit" asp-route-id="@user.UserID">Edit</a></li>
-                                            <form asp-action="Delete" asp-route-id="@user.UserID">
+                                            <li class="dropdown-item"><a asp-controller="Staff" asp-action="Edit" asp-route-id="@staff.StaffID">Edit</a></li>
+                                            <form asp-action="Delete" asp-route-id="@staff.StaffID">
                                             <li class="dropdown-item">
                                                 <button class="delete-dropdown" type="submit">Delete</button>
                                             </li>

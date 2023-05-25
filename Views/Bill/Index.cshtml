@@ -1,27 +1,32 @@
 ﻿@{
-    Layout = "_AdminLayout";
+    Layout = "_Adminlayout";
 }
-@model IEnumerable<User>
+@model IEnumerable<Order>
 
 <div class="product-list-content-continer">
     <div class="product-list-top-section">
         <div class="product-list-breadcumb">
             <a asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-            <div> &nbsp; /&nbsp; Customers</div>
+            <div> &nbsp; /&nbsp; Staffs</div>
         </div>
         <div class="product-list-title-container">
             <div class="product-list-title">
-                Accounts
+                Staff Accounts
             </div>
             <div class="product-list-create-section">
-               
+                <form asp-action="Create">
+                    <button class="product-list-create-button">New Staff's Account</button>
+                </form>
             </div>
         </div>
     </div>
     <div class="product-list-bottom-section">
         <div class="product-list-showing-section">
             <div class="product-list-filter-bar">
-                <input type="text" name="ProductNameSearch" class="product-search-name-path" placeholder="Search..." />
+                <div style="display:flex; flex-direction:row; align-items:center;">
+                    <label class="control-label"></label>
+                    <input style="width:200px;" class="dashboard-date-pickup form-control" type="date" name="datepicker" />
+                </div>
                 <div class="product-search-submit-path">
                     <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
                     <input type="submit" class="product-search-submit-button" value="Search">
@@ -33,27 +38,30 @@
                         <thead>
                             <tr role="row">
                                 <th class="product-id-showing">Id</th>
-                                <th class="product-name-showing">Name</th>
-                                <th class="product-author-showing">Email</th>
-                                <th class="product-number-showing">Phone</th>
-                                <th class="product-number-showing">CitizenID</th>
+                                <th class="product-name-showing">User</th>
+                                <th class="product-author-showing">OrderDate</th>
+                                <th class="product-author-showing">Total</th>
+                                <th class="product-author-showing">PurchaseType</th>
+                                <th class="product-number-showing">Status</th>
                                 <th class="product-action-showing"></th>
                             </tr>
                         </thead>
                         <tbody>
-                           @foreach(var user in Model)
+                            @*@foreach (var staff in Model)*@
+                            @for(int i = 0; i < 2; i++)
                             {
                                 <tr class="body-row">
-                                    <td class="product-id-showing">@user.UserID</td>
-                                    <td class="product-name-showing"> @user.UserName</td>
-                                    <td class="product-author-showing">@user.Email</td>
-                                    <td class="product-number-showing">@user.Phone</td>
-                                    <td class="product-number-showing">@user.CitizenID</td>
+                                    <td class="product-id-showing">1</td>
+                                    <td class="product-name-showing">1</td>
+                                    <td class="product-author-showing">1</td>
+                                    <td class="product-author-showing">1</td>
+                                    <td class="product-author-showing">1 @*@staff.ContractStartDate.ToString("dd/M/yyyy")*@</td>
+                                    <td class="product-number-showing">1 @*@staff.ContractEndDate.Date.ToString("dd/M/yyyy")*@</td>
                                     <td class="product-action-showing">
                                         <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
                                         <ul class="product-action-dropdown-menu">
-                                            <li class="dropdown-item"><a asp-controller="Account" asp-action="Edit" asp-route-id="@user.UserID">Edit</a></li>
-                                            <form asp-action="Delete" asp-route-id="@user.UserID">
+                                            <li class="dropdown-item"><a asp-controller="Staff" asp-action="Edit" asp-route-id="@*@staff.StaffID*@">Edit</a></li>
+                                            <form asp-action="Delete" asp-route-id="@*@staff.StaffID*@">
                                             <li class="dropdown-item">
                                                 <button class="delete-dropdown" type="submit">Delete</button>
                                             </li>
@@ -69,6 +77,3 @@
         </div>
     </div>
 </div>
-
-
-

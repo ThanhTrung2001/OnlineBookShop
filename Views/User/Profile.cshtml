@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_UserLayout";
+}
+
+@model User
+
+<div class="user-profile-container">
+    <div class="user-menu-path">
+        <div class="user-menu-container">
+             <div>
+                <a class="active">Profile</a>
+                <a asp-controller="Address" asp-action="Index">Address</a>
+                <a asp-controller="Order" asp-action="Index">Order</a>
+                <a>Logout</a>
+             </div>
+        </div>
+    </div>
+    <div class="user-profile-path">
+        <div class="user-information-container">
+              <div class="user-information-title">
+                  <div class="user-information-main-title">
+                      Your Profile
+                  </div>
+                <div class="user-information-sub-title">
+                    Manage your information
+                </div>
+              </div> 
+              <div class="user-information-bottom-showing">
+                <div class="user-information-left-title">
+                    <div>UserName</div>
+                    <div>FullName</div>
+                    <div>Email</div>
+                    <div>Phone</div>
+                    <div>Citizen Identity</div>
+                </div>
+                <div class="user-information-right-showing">
+                    <input type="text" value="UserName"/>
+                    <input type="text" value="FullName" />
+                    <input type="email" value="Email" />
+                    <input type="text" value="Phone" />
+                    <input type="text" value="CitizenIdentity" />
+
+                </div>
+              </div>
+        <div class="user-information-button-container">
+            <form>
+                 <button class="user-info-save-button">Save</button>
+            </form>
+              
+        </div>
+        </div>
+    </div>
+</div>

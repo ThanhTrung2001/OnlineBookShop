@@ -31,14 +31,13 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 30px;
     background-color: rgb(245,247,250);
-    min-height: 91vh;
+    min-height: 100vh;
 }
 
 .user-body {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 30px;
     background-color: rgb(245,247,250);
 }

@@ -41,7 +41,8 @@ namespace OnlineBookShop.Controllers
             return View();
         }
 
-        public IActionResult Edit(int? id)
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
             var bookType = unitOfWork.GetRepository<BookType>().GetById(id);
             if (bookType == null)
@@ -65,8 +66,7 @@ namespace OnlineBookShop.Controllers
                 unitOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Greeting = "Edit";
-            return RedirectToAction("Index");
+            return View("Index");
         }
 
         [HttpPost]

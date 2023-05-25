@@ -19,40 +19,37 @@ namespace OnlineBookShop.Controllers.Admin
             return View(entity);
         }
 
-        public IActionResult Detail()
+        public IActionResult Edit(int id)
         {
-            return View();
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(User user)
-        {
-            return View();
-        }
-
-        public IActionResult Edit()
-        {
-            return View();
+            var user = unitOfWork.GetRepository<User>().GetById(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(User user)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                unitOfWork.GetRepository<User>().Update(user);
+                unitOfWork.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(user);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
-            return View();
+            var entity = unitOfWork.GetRepository<User>().GetById(id);
+            unitOfWork.GetRepository<User>().Delete(entity);
+            unitOfWork.SaveChanges();
+            return View("Index");
         }
 
         public IActionResult AddressIndex()

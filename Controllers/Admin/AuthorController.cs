@@ -43,7 +43,7 @@ namespace OnlineBookShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
             var author = unitOfWork.GetRepository<Author>().GetById(id);
             if (author == null)

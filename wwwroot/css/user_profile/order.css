@@ -1,0 +1,36 @@
+﻿.user-order-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DADBDC;
+}
+
+
+
+.user-order-card-action {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-order-card-action form{
+    padding-left:15px;
+
+}
+
+.user-order-card-info {
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-order-card-info div{
+    margin-right:50px;
+}
+
+.user-order-card-action a {
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 15px;
+}

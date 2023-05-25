@@ -37,11 +37,12 @@
                 <div class="product-list-title">Edit Category</div>
                 <div class="product-list-create-section">
                     <button class="product-cancel-button" asp-action="Index">Cancel</button>
-                    <button class="product-save-button" type="submit">Save</button>
+                    <button asp-action="Edit" class="product-save-button" type="submit">Save</button>
                 </div>
             </div>
             <div class="form-type-section">
                 <div class="product-view-showing-section">
+                    <input type="hidden" asp-for="BookTypeID" />
                     <div class="form-group">
                         <label asp-for="TypeName" class="control-label">Type's Name</label>
                         <input asp-for="TypeName" class="form-control">

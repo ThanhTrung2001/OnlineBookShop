@@ -43,6 +43,8 @@ namespace OnlineBookShop.Controllers
             {
                 unitOfWork.GetRepository<Book>().Insert(book);
                 unitOfWork.SaveChanges();
+                ViewBag.BookType = unitOfWork.GetRepository<BookType>().GetAll();
+                ViewBag.BookAuthor = unitOfWork.GetRepository<Author>().GetAll();
                 return RedirectToAction("Index");
             }
             return View();
@@ -69,19 +71,19 @@ namespace OnlineBookShop.Controllers
             {
                 unitOfWork.GetRepository<Book>().Update(book);
                 unitOfWork.SaveChanges();
-                return RedirectToAction("IndexPage");
+                return RedirectToAction("Index");
             }
             return View("Create", book);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
             var entity = unitOfWork.GetRepository<Book>().GetById(id);
             unitOfWork.GetRepository<Book>().Delete(entity);
             unitOfWork.SaveChanges();
-            return RedirectToAction("IndexPage");
+            return RedirectToAction("Index");
         }
     }
 }

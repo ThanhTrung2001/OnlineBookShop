@@ -26,14 +26,14 @@
                 @if (Model.IsSale == false)
                 {
                     <div class="detail-price">
-                        @Model.Price đ
+                        @Model.Price.ToString("0") đ
                     </div>
                 }
                 else
                 {
                     var newPrice = Model.Price * (100 - Model.SalePercent) / 100;
                     <div class="detail-price">
-                        @newPrice đ
+                        @newPrice.ToString("0") đ
                     </div>
                 }
                 <div class="detail-amount-container">

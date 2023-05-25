@@ -1,33 +1,76 @@
 ﻿@{
     Layout = "_UserLayout";
 }
+@model Order
 
 <div class="order-container">
-    <div class="order-user-information-container">
-        <div class="order-address-path">
-            <div class="order-address-label">Address</div>
-            <select name="address" id="product-address" class="order-address-select-box">
-                <option value="type0" selected>None</option>
+    <div class="order-title-showing">Order Confirmation</div>
+    <div class="order-top-information-container">
+        <div class="order-information--title-row">
+            <div>Receiver</div>
+            <div>Phone</div>
+            <div>Address</div>
+        </div>
+        <div class="order-information-row">            
+            <input asp-for="ReceiverName" type="text" class="order-information-input" />
+            <input asp-for="Phone" type="text" class="order-information-input" />
+            <select name="addresses" id="address-selection">
+                <option value="1" selected>Address1</option>
             </select>
         </div>
     </div>
-    <div class="order-user-information-container">
-        <div class="order-address-path">
-            <div class="order-address-label">Purchase</div>
-            <select name="purchasetype" id="purchase-type" class="order-address-select-box">
-                <option value="OnlineBanking" selected>Online Banking</option>
-                <option value="PayWhenReceive">Pay When Receive</option>
-            </select>
+    <div class="order-list-item-container">
+        <div class="user-order-information-container">
+            @*Start OrderItem List*@
+            <div class="user-order-item-confirm">
+                <div style="padding-bottom:15px;">Products</div>
+                <div class="user-order-product-list">
+                    <ul class="user-order-item-list">
+                        <li>
+                            <div class="user-order-item-card">
+                                <div class="user-order-card-info">
+                                    <div class="user-order-item-image">
+                                        <img style="height:35px" src="https://i.imgur.com/qywe4pq.jpg" />
+                                    </div>
+                                    <div class="user-order-name-number">
+                                        <div>Title</div>
+                                        <div>x 3</div>
+                                    </div>
+                                </div>
+                                <div class="user-order-price-path">
+                                    <div>100000 đ</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="order-user-information-container">
-        <div class="order-total-path">
-                <div class="order-address-label">Total</div>
-                <div>100000.00 đ</div>
+    <div class="user-order-information-container">
+        <div class="order-bottom-purchase-container">
+            <div class="user-order-total-path">
+                <div class="user-order-total-row">
+                    <div class="user-order-total-title">Cost :&nbsp;</div>
+                    <div>1000000 đ</div>
+                </div>
+                <div class="user-order-total-row">
+                    <div class="user-order-total-title">Discount :&nbsp;</div>
+                    <div>- 100000 đ</div>
+                </div>
+                <div class="user-order-total-row">
+                    <div class="user-order-total-title">Total :&nbsp;</div>
+                    <div>900000 đ</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="detail-button">
-        <button class="detail-cart-button">Confirm</button>
-        <button class="detail-buy-button">Cancel</button>
+    <div class="user-order-button-container">
+        <form>
+            <button class="user-order-button-confirm">Confirm</button>
+        </form>
+        <form>
+            <button class="user-order-button-cancel">Cancel</button>
+        </form>
     </div>
 </div>

@@ -2,15 +2,15 @@
     Layout = "_UserLayout";
 }
 
-@model Order
+@model User
 
 <div class="user-profile-container">
     <div class="user-menu-path">
         <div class="user-menu-container">
             <div>
                 <a asp-controller="User" asp-action="Profile">Profile</a>
-                <a asp-controller="Address" asp-action="Index">Address</a>
-                <a class="active">Order</a>
+                <a class="active">Address</a>
+                <a asp-controller="Order" asp-action="Index">Order</a>
                 <a>Logout</a>
             </div>
         </div>
@@ -20,29 +20,33 @@
             <div class="user-address-showing">
                 <div>
                     <div class="user-information-main-title">
-                        Your Order History
+                        Your Address List
                     </div>
                     <div class="user-information-sub-title">
-                        Review your order
+                        Manage your addresses
                     </div>
                 </div>
+                <a asp-action="Create" class="user-address-create-button">Add New</a>
             </div>
             <div class="user-address-list-container">
                 <ul class="user-address-list">
                     <li>
-                        <div class="user-order-card">
-                            <div class="user-order-card-info">
-                                <div class="user-order-date">
-                                    27/01/2023 00:00:00
+                        <div class="user-address-card">
+                            <div class="user-address-card-info">
+                                <div class="user-address-title">
+                                    <div class="user-address-city">City</div>
+                                    <div>Country</div>
                                 </div>
-                                <div class="user-order-total">
-                                    1000000 đ
+                                <div class="user-address-detail">
+                                    Detail
                                 </div>
                             </div>
-                            <div class="user-order-card-action">
-                                <a asp-action="Detail" style="color:#C92127">Detail</a>
+                            <div class="user-address-card-action">
                                 <form>
-                                    <a>Cancel</a>
+                                    <a style="color:#C92127">Make default</a>
+                                </form>
+                                <form>
+                                    <a>Delete</a>
                                 </form>
                             </div>
                         </div>
@@ -53,5 +57,4 @@
 
     </div>
 </div>
-
 

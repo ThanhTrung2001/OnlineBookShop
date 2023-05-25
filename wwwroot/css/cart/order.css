@@ -1,38 +1,101 @@
 ﻿.order-container {
+    padding:30px 10% 0 10%;
     display: flex;
     flex-direction:column;
+    align-items:center;
     width: 100%;
-    justify-content:center;
 }
 
-.order-user-information-container {
+.order-title-showing{
+    margin-bottom:20px;
+    font-size:30px;
+    font-weight:600;
+}
+
+.order-top-information-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    justify-content: start;
     padding: 30px;
+    width: 100%;
+    justify-content: center;
     background-color: white;
     border: 1px solid #DADBDC;
     border-radius: 5px;
-    margin-bottom:30px;
-    justify-content:center;
+    margin-bottom: 20px;
 }
-    .order-user-information-container .order-address-label {
-        margin-right: 35px;
+
+.order-information-row, .order-information--title-row {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.order-information--title-row{
+    align-items:end;
+}
+
+    .order-information--title-row div{
+        padding:20px 0;
+        font-size:16px;
+        font-weight:500;
     }
 
-.order-address-select-box {
-    width:620px;
-    display:flex;
-    text-align: center;
+.order-information-row input, select {
+    width: 300px;
+    margin: 15px 0;
+    padding-left: 30px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #DADBDC;
+}
+
+.order-list-item-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.user-order-information-container {
+    padding:20px 50px 0 20px;;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
     border: 1px solid #DADBDC;
     border-radius: 5px;
 }
 
-.order-address-path, .order-total-path {
+.order-bottom-purchase-container .user-order-total-path {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content:center;
 }
 
+    .order-bottom-purchase-container .user-order-total-path .user-order-total-row {
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+    }
 
+.user-order-button-container {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
+    .user-order-button-container form button {
+        padding: 5px 50px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        margin-right: 30px;
+    }
+
+.user-order-button-cancel {
+    background-color: #DADBDC;
+}
+
+.user-order-button-confirm {
+    color: white;
+    background-color: #C92127;
+}

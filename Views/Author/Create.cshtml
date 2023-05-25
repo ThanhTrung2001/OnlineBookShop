@@ -36,12 +36,13 @@
             <div class="product-view-title-container">
                 <div class="product-list-title">Edit Author</div>
                 <div class="product-list-create-section">
-                    <button class="product-cancel-button">Cancel</button>
+                    <button class="product-cancel-button" asp-controller="Author" asp-action="Index">Cancel</button>
                     <button class="product-save-button" type="submit">Save</button>
                 </div>
             </div>
             <div class="form-type-section">
                 <div class="product-view-showing-section">
+                    <input type="hidden" asp-for="AuthorID" />
                     <div class="form-group">
                         <label asp-for="AuthorName" class="control-label">Author's Name</label>
                         <input asp-for="AuthorName" class="form-control" />
