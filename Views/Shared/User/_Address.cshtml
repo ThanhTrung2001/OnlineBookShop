@@ -1,0 +1,23 @@
+﻿@model UserAddress
+
+<li>
+    <div class="user-address-card">
+        <div class="user-address-card-info">
+            <div class="user-address-title">
+                <div class="user-address-city">@Model.City</div>
+                <div>@Model.Country</div>
+            </div>
+            <div class="user-address-detail">
+                @Model.Address
+            </div>
+        </div>
+        <div class="user-address-card-action">
+            <form asp-controller="Address" asp-action="SelectDefault">
+                <a style="color:#C92127">Make default</a>
+            </form>
+            <form asp-controller="Address" asp-action="Delete" method="post">
+                <a type="submit">Delete</a>
+            </form>
+        </div>
+    </div>
+</li>

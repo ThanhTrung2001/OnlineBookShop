@@ -2,6 +2,12 @@
     text-decoration: none;
 }
 
+.login-container{
+    width:100%;
+    display:flex;
+
+}
+
 .login-dialog-container {
     flex:1;
     display: flex;

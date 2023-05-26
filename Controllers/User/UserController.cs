@@ -15,27 +15,23 @@ namespace OnlineBookShop.Controllers
 
         public IActionResult Profile()
         {
-            return View();
+            int? currentUserID = HttpContext.Session.GetInt32("CurrentUserID");
+            var user = unitOfWork.GetRepository<User>().GetById(currentUserID);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
         }
 
         [HttpPost] //Update UserProfile
         [ValidateAntiForgeryToken]
         public IActionResult Profile(User user)
         {
-
+            unitOfWork.GetRepository<User>().Update(user);
+            unitOfWork.SaveChanges();
             return View();
         }
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

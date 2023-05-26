@@ -79,6 +79,7 @@
     width: 100%;
     padding: 15px 10px;
     font-size: 15px;
+    align-items:center;
 }
 
     .product-list-filter-bar .product-search-name-path {
@@ -89,6 +90,7 @@
         border: 1px solid rgb(206,212,218);
         border-radius: 5px;
         padding-left: 30px;
+        height:35px
     }
 
 .product-search-type-path, .product-search-author-path {

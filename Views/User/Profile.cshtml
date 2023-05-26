@@ -11,43 +11,50 @@
                 <a class="active">Profile</a>
                 <a asp-controller="Address" asp-action="Index">Address</a>
                 <a asp-controller="Order" asp-action="Index">Order</a>
-                <a>Logout</a>
+                <a asp-controller="Session" asp-action="Logout">Logout</a>
              </div>
         </div>
     </div>
     <div class="user-profile-path">
-        <div class="user-information-container">
-              <div class="user-information-title">
-                  <div class="user-information-main-title">
-                      Your Profile
-                  </div>
-                <div class="user-information-sub-title">
-                    Manage your information
+       <form asp-controller="User" asp-action="Profile" method="post">
+            <div class="user-information-container">
+                <div class="user-information-title">
+                    <div class="user-information-main-title">
+                        Your Profile
+                    </div>
+                    <div class="user-information-sub-title">
+                        Manage your information
+                    </div>
                 </div>
-              </div> 
-              <div class="user-information-bottom-showing">
-                <div class="user-information-left-title">
-                    <div>UserName</div>
-                    <div>FullName</div>
-                    <div>Email</div>
-                    <div>Phone</div>
-                    <div>Citizen Identity</div>
+                <div class="user-information-bottom-showing">
+                    <div class="user-information-left-title">
+                        <div>UserName</div>
+                        <div>FullName</div>
+                        <div>Email</div>
+                        <div>Phone</div>
+                        <div>Citizen Identity</div>
+                        <div>Address</div>
+                    </div>
+                    <div class="user-information-right-showing">
+                        <input type="hidden" asp-for="UserID" />
+                        <input type="hidden" asp-for="AddressDefaultID" />
+                        <input type="hidden" asp-for="Addresses" />
+                        <input type="hidden" asp-for="Carts" />
+                        <input type="hidden" asp-for="Orders" />
+                        <input type="hidden" asp-for="UserType" />
+                        <input type="hidden" asp-for="Password" />
+                        <input asp-for="UserName" type="text" />
+                        <input asp-for="FullName" type="text" />
+                        <input asp-for="Email" type="email" />
+                        <input asp-for="Phone" type="text" />
+                        <input asp-for="CitizenID" type="text" />
+                        <input asp-for="Address" type="text" />
+                    </div>
                 </div>
-                <div class="user-information-right-showing">
-                    <input type="text" value="UserName"/>
-                    <input type="text" value="FullName" />
-                    <input type="email" value="Email" />
-                    <input type="text" value="Phone" />
-                    <input type="text" value="CitizenIdentity" />
-
+                <div class="user-information-button-container">
+                    <button class="user-info-save-button" type="submit">Save</button>
                 </div>
-              </div>
-        <div class="user-information-button-container">
-            <form>
-                 <button class="user-info-save-button">Save</button>
-            </form>
-              
-        </div>
-        </div>
+            </div>
+       </form>
     </div>
 </div>

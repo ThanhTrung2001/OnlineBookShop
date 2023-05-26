@@ -33,6 +33,16 @@ body {
     width: 100%;
     background-color: rgb(245,247,250);
     min-height: 100vh;
+
+}
+
+.main-login-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(245,247,250);
+    min-height: 100vh;
+    justify-content:center;
 }
 
 .user-body {

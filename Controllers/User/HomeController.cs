@@ -18,6 +18,16 @@ namespace OnlineBookShop.Controllers
 
         public IActionResult Index()
         {
+            int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
+            Debug.WriteLine(currentUserType);
+            if (currentUserType == null)
+            {
+                return RedirectToAction("Login", "Session");
+            }
+            else if (currentUserType != 2)
+            {
+                return RedirectToAction("Login", "StaffSession");
+            }
             var entity = unitOfWork.GetRepository<Book>().GetAll();
             return View(entity);
         }

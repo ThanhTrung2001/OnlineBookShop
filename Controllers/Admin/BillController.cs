@@ -25,5 +25,29 @@ namespace OnlineBookShop.Controllers
             var entity = unitOfWork.GetRepository<Order>().GetAll();
             return View(entity);
         }
+
+        public IActionResult Detail(int id)
+        {
+            var entity = unitOfWork.GetRepository<Order>().GetById(id);
+            //if (entity == null)
+            //{
+            //    return NotFound(); 
+            //}
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var entity = unitOfWork.GetRepository<Order>().GetById(id);
+            if (entity != null)
+            {
+                unitOfWork.GetRepository<Order>().Delete(entity);
+                unitOfWork.SaveChanges();
+                return View("Index");
+            }
+            return View("Index");
+        }
     }
 }

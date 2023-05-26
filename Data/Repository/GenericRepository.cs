@@ -4,8 +4,8 @@ namespace OnlineBookShop.Data.Repository
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
 
-        private readonly DbContext _dbContext;
-        private readonly DbSet<T> _dbSet;
+        protected DbContext _dbContext;
+        protected DbSet<T> _dbSet;
 
         public GenericRepository(DbContext context)
         {

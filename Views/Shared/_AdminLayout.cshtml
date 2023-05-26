@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="~/css/index-body/index.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/partial/partial-index-item.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/partial/create.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/user_profile/order_detail.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cart/order.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/user_profile//profile.css" asp-append-version="true" />
 </head>
 <body class="body">
     <div class="left-section">
@@ -64,8 +67,10 @@
                     </a>
                 </li>
                 <li class="sidebar-link">
-                    <img class="sidebar-link-icon" src="/icons/logout_rounded_down_64px.png" />
-                    Log out
+                    <a style="color:white;" asp-controller="StaffSession" asp-action="Logout">
+                        <img class="sidebar-link-icon" src="/icons/logout_rounded_down_64px.png" />
+                        Log out
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -79,8 +84,8 @@
             <div class="right-header-section">
                 <img class="avatar-header" src="/images/75150646.jpg" />
                 <div class="user-header-info">
-                    <div class="user-header-name">Name</div>
-                    <div class="user-header-email">name@gmail.com</div>
+                    <div class="user-header-name">Welcome</div>
+                    <div class="user-header-email">onlinebookshop@gmail.com</div>
                 </div>
             </div>
         </header>

@@ -1,32 +1,41 @@
-﻿@model User
+﻿@{
+    Layout = "_Layout";
+}
+@model User
 
-<div class="login-dialog-container">
-    <div class="login-dialog">
-        <div class="login-dialog-content">
-            <div class="login-input-path">
-                <div class="login-big-title">Sign In</div>
-                <div class="login-sub-title">Log in to your account to continue.</div>
-                <div class="login-input-container">
-                    <label asp-for="Email" class="label-input">Email Address</label>
-                    <input asp-for="Email" class="form-control field-input" />
+<div>
+    <form asp-controller="Session" asp-action="Login" method="post">
+        <div class="login-container">
+            <div class="login-dialog-container">
+                <div class="login-dialog">
+                    <div class="login-dialog-content">
+                        <div class="login-input-path">
+                            <div class="login-big-title">Sign In</div>
+                            <div class="login-sub-title">Log in to your account to continue.</div>
+                            <div class="login-input-container">
+                                <label asp-for="Email" class="label-input">Email Address</label>
+                                <input asp-for="Email" class="form-control field-input" />
+                            </div>
+                            <div class="login-input-container">
+                                <label asp-for="Password" class="label-input">Password</label>
+                                <input asp-for="Password" class="form-control" type="password" />
+                            </div>
+                            <div class="login-forgot-password">
+                                <a asp-controller="StaffSession" type="sunmit">Staff?</a>
+                            </div>
+                            <button class="login-button">Sign In</button>
+                        </div>
+                        <div class="login-divider-path">
+                            <div class="solid-divider"></div>
+                            <div>Or</div>
+                            <div class="solid-divider"></div>
+                        </div>
+                        <div class="login-signup-path">
+                            Don't have an account? &nbsp; <a asp-controller="Session" asp-action="SignUp">Sign up</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="login-input-container">
-                    <label asp-for="Password" class="label-input">Password</label>
-                    <input asp-for="Password" class="form-control" type="password" />
-                </div>
-                <div class="login-forgot-password">
-                    <a href="">Forgot password?</a>
-                </div>
-                <button class="login-button">Sign In</button>
-            </div>
-            <div class="login-divider-path">
-                <div class="solid-divider"></div>
-                <div>Or</div>
-                <div class="solid-divider"></div>
-            </div>
-            <div class="login-signup-path">
-                Don't have an account? &nbsp; <a asp-controller="Session" asp-action="SignUp">Sign up</a>
             </div>
         </div>
-    </div>
+    </form>
 </div>

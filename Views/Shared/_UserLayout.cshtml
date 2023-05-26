@@ -51,9 +51,9 @@
             <button class="account-button category-button">
                 <img class="account-icon" src="~/icons/ico_account_gray.svg" />
                 <ul class="user-dropdown-menu">
-                    <li class="dropdown-item"><a>Profile</a></li>
-                    <li class="dropdown-item"><a>Order</a></li>
-                    <li class="dropdown-item"><a>LogOut</a></li>
+                    <li class="dropdown-item"><a asp-controller="User" asp-action="Profile">Profile</a></li>
+                    <li class="dropdown-item"><a asp-controller="Order" asp-action="Index">Order</a></li>
+                    <li class="dropdown-item"><a asp-controller="Session" asp-action="Logout">LogOut</a></li>
                     <!-- this is where define type-->
                 </ul>
             </button>

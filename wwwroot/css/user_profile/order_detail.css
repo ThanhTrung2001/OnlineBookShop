@@ -58,3 +58,13 @@
     font-size:17px;
     font-weight:500;
 }
+
+.user-order-card-info{
+    display:flex;
+    flex-direction: row;
+}
+
+.user-order-card-info div{
+    margin-right:30px;
+}
+

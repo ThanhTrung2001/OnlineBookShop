@@ -1,0 +1,28 @@
+﻿@model Staff
+
+<div>
+    <form asp-controller="StaffSession" asp-action="Login" method="post">
+        <div class="login-dialog-container">
+            <div class="login-dialog">
+                <div class="login-dialog-content">
+                    <div class="login-input-path">
+                        <div class="login-big-title">Sign In</div>
+                        <div class="login-sub-title">Log in to your account to continue.</div>
+                        <div class="login-input-container">
+                            <label asp-for="Email" class="label-input">Email Address</label>
+                            <input asp-for="Email" class="form-control field-input" />
+                        </div>
+                        <div class="login-input-container">
+                            <label asp-for="Password" class="label-input">Password</label>
+                            <input asp-for="Password" class="form-control" type="password" />
+                        </div>
+                        <div class="login-forgot-password">
+                            <a asp-controller="Session" asp-action="Login">Customer?</a>
+                        </div>
+                        <button class="login-button" type="submit">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

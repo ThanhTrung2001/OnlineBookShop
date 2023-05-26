@@ -11,12 +11,10 @@
         </div>
         <div class="product-list-title-container">
             <div class="product-list-title">
-                Staff Accounts
+                Customer's Order
             </div>
             <div class="product-list-create-section">
-                <form asp-action="Create">
-                    <button class="product-list-create-button">New Staff's Account</button>
-                </form>
+                
             </div>
         </div>
     </div>
@@ -48,7 +46,7 @@
                         </thead>
                         <tbody>
                             @*@foreach (var staff in Model)*@
-                            @for(int i = 0; i < 2; i++)
+                            @for(int i = 0; i < 1; i++)
                             {
                                 <tr class="body-row">
                                     <td class="product-id-showing">1</td>
@@ -60,8 +58,8 @@
                                     <td class="product-action-showing">
                                         <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
                                         <ul class="product-action-dropdown-menu">
-                                            <li class="dropdown-item"><a asp-controller="Staff" asp-action="Edit" asp-route-id="@*@staff.StaffID*@">Edit</a></li>
-                                            <form asp-action="Delete" asp-route-id="@*@staff.StaffID*@">
+                                            <li class="dropdown-item"><a asp-controller="Bill" asp-action="Detail" asp-route-id="">View</a></li>
+                                            <form asp-action="Delete" asp-route-id="">
                                             <li class="dropdown-item">
                                                 <button class="delete-dropdown" type="submit">Delete</button>
                                             </li>

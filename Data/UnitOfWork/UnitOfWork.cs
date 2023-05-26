@@ -4,7 +4,7 @@ namespace OnlineBookShop.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext context;
+        protected readonly ApplicationDbContext context;
 
         public UnitOfWork(ApplicationDbContext _context)
         {
@@ -14,6 +14,51 @@ namespace OnlineBookShop.Data.UnitOfWork
         public IGenericRepository<TEntity> GetRepository<TEntity>() where TEntity : class
         {
             return new GenericRepository<TEntity>(context);
+        }
+
+        public UserAddressRepository GetUserAddressRepository()
+        {
+            return new UserAddressRepository(context);
+        }
+
+        public AccountRepository GetAccountRepository()
+        {
+            return new AccountRepository(context);
+        }
+
+        public AuthorRepository GetAuthorRepository()
+        {
+            return new AuthorRepository(context);
+        }
+
+        public BookRepository GetBookRepository()
+        {
+            return new BookRepository(context);
+        }
+
+        public BookTypeRepository GetBookTypeRepository()
+        {
+            return new BookTypeRepository(context);
+        }
+
+        public DiscountRepository GetDiscountRepository()
+        {
+            return new DiscountRepository(context);
+        }
+
+        public OrderRepository GetOrderRepository()
+        {
+            return new OrderRepository(context);
+        }
+
+        public StaffRepository GetStaffRepository()
+        {
+            return new StaffRepository(context);
+        }
+
+        public UserRepository GetUserRepository()
+        {
+            return new UserRepository(context);
         }
 
         public int SaveChanges()
