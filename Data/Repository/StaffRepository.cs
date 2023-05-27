@@ -11,7 +11,7 @@ namespace OnlineBookShop.Data.Repository
 
         public IEnumerable<Staff> Finding(string name)
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<Staff>().Where(staff => staff.UserName.Contains(name)).ToList();
         }
     }
 }

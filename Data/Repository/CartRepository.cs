@@ -41,8 +41,10 @@ namespace OnlineBookShop.Data.Repository
             {
                 _dbContext.Set<CartItem>().Add(cartItem);
             }
-            _dbContext.SaveChanges();
+        }
 
+        public void ResetCartAfterOrder(int cartID)
+        {
         }
     }
 }

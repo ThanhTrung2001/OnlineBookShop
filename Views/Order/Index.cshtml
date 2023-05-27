@@ -2,7 +2,7 @@
     Layout = "_UserLayout";
 }
 
-@model Order
+@model IEnumerable<Order>
 
 <div class="user-profile-container">
     <div class="user-menu-path">
@@ -29,24 +29,10 @@
             </div>
             <div class="user-address-list-container">
                 <ul class="user-address-list">
-                    <li>
-                        <div class="user-order-card">
-                            <div class="user-order-card-info">
-                                <div class="user-order-date">
-                                    27/01/2023 00:00:00
-                                </div>
-                                <div class="user-order-total">
-                                    1000000 đ
-                                </div>
-                            </div>
-                            <div class="user-order-card-action">
-                                <a asp-action="Detail" style="color:#C92127">Detail</a>
-                                <form>
-                                    <a>Cancel</a>
-                                </form>
-                            </div>
-                        </div>
-                    </li>
+                    @foreach(var order in Model)
+                    {
+                        <partial name="User/_Order" model="@order"></partial>
+                    }
                 </ul>
             </div>
         </div>

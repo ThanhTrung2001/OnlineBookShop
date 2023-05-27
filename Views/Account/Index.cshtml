@@ -20,13 +20,15 @@
     </div>
     <div class="product-list-bottom-section">
         <div class="product-list-showing-section">
-            <div class="product-list-filter-bar">
-                <input type="text" name="ProductNameSearch" class="product-search-name-path" placeholder="Search..." />
-                <div class="product-search-submit-path">
-                    <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
-                    <input type="submit" class="product-search-submit-button" value="Search">
+            <form asp-action="Index" method="post">
+                <div class="product-list-filter-bar"> 
+                        <input type="text" name="searchString" class="product-search-name-path" placeholder="Search..." />
+                        <div class="product-search-submit-path">
+                            <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
+                            <input type="submit" class="product-search-submit-button" value="Search">
+                        </div>
                 </div>
-            </div>
+            </form>
             <div class="product-list-showing-container">
                 <div class="product-list-table-scroll">
                     <table class="product-list-showing">

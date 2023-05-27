@@ -34,92 +34,31 @@
                     </div>
                     <div class="user-order-info-detail">
                         <div class="user-order-status">
-                            <div>Date</div>
-                            <div>Status : ?</div>
+                            <div>@Model.OrderDate</div>
+                            <div>Status : @Model.DeliveryStatus</div>
                         </div>
                         <div style="padding-bottom:15px;">Products</div>
                         <div class="user-order-product-list">
                             <ul class="user-order-item-list">
-                                @*Start Product List*@
-                                <li>
-                                    <div class="user-order-item-card">
-                                        <div class="user-order-card-info">
-                                            <div class="user-order-item-image">
-                                                <img style="height:35px" src="https://i.imgur.com/qywe4pq.jpg" />
-                                            </div>
-                                            <div class="user-order-name-number">
-                                                <div>Title</div>
-                                                <div>x 3</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-order-price-path">
-                                            <div>100000 đ</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="user-order-item-card">
-                                        <div class="user-order-card-info">
-                                            <div class="user-order-item-image">
-                                                <img style="height:35px" src="https://i.imgur.com/qywe4pq.jpg" />
-                                            </div>
-                                            <div class="user-order-name-number">
-                                                <div>Title</div>
-                                                <div>x 3</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-order-price-path">
-                                            <div>100000 đ</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="user-order-item-card">
-                                        <div class="user-order-card-info">
-                                            <div class="user-order-item-image">
-                                                <img style="height:35px" src="https://i.imgur.com/qywe4pq.jpg" />
-                                            </div>
-                                            <div class="user-order-name-number">
-                                                <div>Title</div>
-                                                <div>x 3</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-order-price-path">
-                                            <div>100000 đ</div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="user-order-item-card">
-                                        <div class="user-order-card-info">
-                                            <div class="user-order-item-image">
-                                                <img style="height:35px" src="https://i.imgur.com/qywe4pq.jpg" />
-                                            </div>
-                                            <div class="user-order-name-number">
-                                                <div>Title</div>
-                                                <div>x 3</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-order-price-path">
-                                            <div>100000 đ</div>
-                                        </div>
-                                    </div>
-                                </li>
+                                @foreach (var item in ViewBag.ItemList)
+                                {
+                                    <partial name="User/_OrderDetailItem" model="item"></partial>
+                                }
                             </ul>
                         </div>
                     </div>
                     <div class="user-order-total-path">
                         <div class="user-order-total-row">
                             <div class="user-order-total-title">Cost :&nbsp;</div>
-                            <div>1000000 đ</div>
+                            <div>@Model.TotalAmount đ</div>
                         </div>
                         <div class="user-order-total-row">
                             <div class="user-order-total-title">Discount :&nbsp;</div>
-                            <div>- 100000 đ</div>
+                            <div>- 0 đ</div>
                         </div>
                         <div class="user-order-total-row">
                             <div class="user-order-total-title">Total :&nbsp;</div>
-                            <div>900000 đ</div>
+                            <div>@Model.TotalAmount đ</div>
                         </div>
                     </div>
                 </div>

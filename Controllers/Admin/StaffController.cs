@@ -15,12 +15,22 @@ namespace OnlineBookShop.Controllers
 
         public IActionResult Index()
         {
+            int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
+            if (currentUserType != 0)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
             var entity = unitOfWork.GetRepository<Staff>().GetAll();
             return View(entity);
         }
 
         public IActionResult Create()
         {
+            int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
+            if (currentUserType != 0)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
             return View();
         }
 
@@ -39,6 +49,11 @@ namespace OnlineBookShop.Controllers
 
         public IActionResult Edit(int id)
         {
+            int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
+            if (currentUserType != 0)
+            {
+                return RedirectToAction("Index", "Dashboard");
+            }
             var staff = unitOfWork.GetRepository<Staff>().GetById(id);
             if (staff == null)
             {

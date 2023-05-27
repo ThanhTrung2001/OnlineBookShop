@@ -18,6 +18,18 @@ namespace OnlineBookShop.Controllers.Admin
             var entity = unitOfWork.GetRepository<User>().GetAll();
             return View(entity);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(string searchString)
+        {
+            if (searchString == null)
+            {
+                var account = unitOfWork.GetRepository<User>().GetAll();
+                return View(account);
+            }
+            var entity = unitOfWork.GetAccountRepository().Finding(searchString);
+            return View(entity);
+        }
 
         public IActionResult Edit(int id)
         {

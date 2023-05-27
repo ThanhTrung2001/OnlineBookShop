@@ -22,29 +22,30 @@
         </div>
     </div>
     <div class="product-list-bottom-section">
-
         <div class="product-list-showing-section">
-            <div class="product-list-filter-bar">
-                <input type="text" name="ProductNameSearch" class="product-search-name-path" placeholder="Search..." />
-                <select name="productype" id="product-type" class="product-search-type-path">
-                    <option value="type0" selected>None</option>
-                    @foreach (var bookType in ViewBag.BookType)
-                    {
-                        <option value="@bookType.BookTypeID">@bookType.TypeName</option>
-                    }
-                </select>
-                <select name="productauthor" id="product-author" class="product-search-author-path">
-                    <option value="author0" selected>None</option>
-                    @foreach (var bookAuthor in ViewBag.BookAuthor)
-                    {
-                        <option value="@bookAuthor.AuthorID">@bookAuthor.AuthorName</option>
-                    }
-                </select>
-                <div class="product-search-submit-path">
-                    <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
-                    <input type="submit" class="product-search-submit-button" value="Search">
+            <form asp-action="Index" method="post">
+                <div class="product-list-filter-bar">
+                    <input type="text" name="searchString" class="product-search-name-path" placeholder="Search..." />
+                    <select name="bookType" id="product-type" class="product-search-type-path">
+                        <option value="0" selected>None</option>
+                        @foreach (var bookType in ViewBag.BookType)
+                        {
+                            <option value="@bookType.BookTypeID">@bookType.TypeName</option>
+                        }
+                    </select>
+                    <select name="bookAuthor" class="product-search-author-path">
+                        <option value="0" selected>None</option>
+                        @foreach (var bookAuthor in ViewBag.BookAuthor)
+                        {
+                            <option value="@bookAuthor.AuthorID">@bookAuthor.AuthorName</option>
+                        }
+                    </select>
+                    <div class="product-search-submit-path">
+                        <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
+                        <input type="submit" class="product-search-submit-button" value="Search">
+                    </div>
                 </div>
-            </div>
+            </form>
             <div class="product-list-showing-container">
                 <div class="product-list-table-scroll">
                     <table class="product-list-showing">

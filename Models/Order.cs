@@ -4,6 +4,7 @@
     {
         public int OrderID { get; set; }
         public int UserID { get; set; }
+        public int CartID { get; set; }
         public int AddressID { get; set; }
         public string ReceiverName { get; set; }
         public string Phone { get; set; }

@@ -3,74 +3,69 @@
 }
 @model Order
 
-<div class="order-container">
-    <div class="order-title-showing">Order Confirmation</div>
-    <div class="order-top-information-container">
-        <div class="order-information--title-row">
-            <div>Receiver</div>
-            <div>Phone</div>
-            <div>Address</div>
+<form asp-controller="Order" asp-action="Create" method="post">
+    <div class="order-container">
+        <div class="order-title-showing">Order Confirmation</div>
+        <div class="order-top-information-container">
+            <div class="order-information--title-row">
+                <div>Receiver</div>
+                <div>Phone</div>
+                <div>Address</div>
+                <div>PurchaseType</div>
+            </div>
+            <div class="order-information-row">            
+                <input asp-for="ReceiverName" type="text" class="order-information-input" />
+                <input asp-for="Phone" type="text" class="order-information-input" />
+                <select asp-for="AddressID">
+                    @foreach(var address in ViewBag.AddressSelection)
+                    {
+                        <option value="@address.UserAddressID">@address.Address</option>
+                    }
+                </select>
+                <select asp-for="PurchaseType">
+                    <option value="OnlineBanking">Online Banking</option>
+                    <option value="PayWhenReceive">Pay when receive</option>
+                </select>
+            </div>
         </div>
-        <div class="order-information-row">            
-            <input asp-for="ReceiverName" type="text" class="order-information-input" />
-            <input asp-for="Phone" type="text" class="order-information-input" />
-            <select name="addresses" id="address-selection">
-                <option value="1" selected>Address1</option>
-            </select>
+        <div class="order-list-item-container">
+            <div class="user-order-information-container">
+                @*Start OrderItem List*@
+                <div class="user-order-item-confirm">
+                    <div style="padding-bottom:15px;">Products</div>
+                    <div class="user-order-product-list">
+                        <ul class="user-order-item-list">
+                            @foreach (var item in ViewBag.ItemList)
+                            {
+                                <partial name="User/_OrderItem" model="@item"></partial>
+                            }
+                        </ul>
+                    </div>
+                </div>
+           
+            </div>
         </div>
-    </div>
-    <div class="order-list-item-container">
         <div class="user-order-information-container">
-            @*Start OrderItem List*@
-            <div class="user-order-item-confirm">
-                <div style="padding-bottom:15px;">Products</div>
-                <div class="user-order-product-list">
-                    <ul class="user-order-item-list">
-                        <li>
-                            <div class="user-order-item-card">
-                                <div class="user-order-card-info">
-                                    <div class="user-order-item-image">
-                                        <img style="height:35px" src="https://i.imgur.com/qywe4pq.jpg" />
-                                    </div>
-                                    <div class="user-order-name-number">
-                                        <div>Title</div>
-                                        <div>x 3</div>
-                                    </div>
-                                </div>
-                                <div class="user-order-price-path">
-                                    <div>100000 đ</div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="order-bottom-purchase-container">
+                <div class="user-order-total-path">
+                    <div class="user-order-total-row">
+                        <div class="user-order-total-title">Cost :&nbsp;</div>
+                        <div>@ViewBag.Cart.Cost</div>
+                    </div>
+                    <div class="user-order-total-row">
+                        <div class="user-order-total-title">Discount :&nbsp;</div>
+                        <div>- 0 đ</div>
+                    </div>
+                    <div class="user-order-total-row">
+                        <div class="user-order-total-title">Total :&nbsp;</div>
+                        <div>@ViewBag.Cart.Cost đ</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="user-order-information-container">
-        <div class="order-bottom-purchase-container">
-            <div class="user-order-total-path">
-                <div class="user-order-total-row">
-                    <div class="user-order-total-title">Cost :&nbsp;</div>
-                    <div>1000000 đ</div>
-                </div>
-                <div class="user-order-total-row">
-                    <div class="user-order-total-title">Discount :&nbsp;</div>
-                    <div>- 100000 đ</div>
-                </div>
-                <div class="user-order-total-row">
-                    <div class="user-order-total-title">Total :&nbsp;</div>
-                    <div>900000 đ</div>
-                </div>
-            </div>
+        <div class="user-order-button-container">
+             <button class="user-order-button-confirm" type="submit">Confirm</button>
+             <button asp-controller="Cart" asp-action="Index" class="user-order-button-cancel">Cancel</button>
         </div>
     </div>
-    <div class="user-order-button-container">
-        <form>
-            <button class="user-order-button-confirm">Confirm</button>
-        </form>
-        <form>
-            <button class="user-order-button-cancel">Cancel</button>
-        </form>
-    </div>
-</div>
+</form>

@@ -1,0 +1,20 @@
+﻿@model Order
+
+<li>
+    <div class="user-order-card">
+        <div class="user-order-card-info">
+            <div class="user-order-date">
+                @Model.OrderDate
+            </div>
+            <div class="user-order-total">
+                @Model.TotalAmount
+            </div>
+        </div>
+        <div class="user-order-card-action">
+            <a asp-action="Detail" style="color:#C92127" asp-route-id="@Model.OrderID">Detail</a>
+            <form>
+                <a>Cancel</a>
+            </form>
+        </div>
+    </div>
+</li>

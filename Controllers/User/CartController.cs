@@ -34,6 +34,8 @@ namespace OnlineBookShop.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(Cart cart)
         {
+            var order = new Order(
+                );
             return RedirectToAction("Create", "Order");
         }
 

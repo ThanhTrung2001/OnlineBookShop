@@ -24,24 +24,26 @@
                 <img class="logo" src="~/images/fahasa_logo.png" />
             </a>
         </div>
-        <div class="middle-section">
-            <button class="category-button">
+        <form asp-controller="Home" asp-action="Index" method="post">
+            <div class="middle-section">
+                @* <button class="category-button">
                 <img class="category-icon" src="~/icons/menu_rounded_64px.png" />
                 <ul class="category-dropdown-menu">
-                    <li class="dropdown-item"><a>Type1</a></li>
-                    <li class="dropdown-item"><a>Type2</a></li>
-                    <li class="dropdown-item"><a>Type3</a></li>
-                    <li class="dropdown-item"><a>Type4</a></li>
-                    <li class="dropdown-item"><a>Type5</a></li>
-                    <li class="dropdown-item"><a>Type6</a></li>
-                    <!-- this is where define type-->
+                <li class="dropdown-item"><a>Type1</a></li>
+                <li class="dropdown-item"><a>Type2</a></li>
+                <li class="dropdown-item"><a>Type3</a></li>
+                <li class="dropdown-item"><a>Type4</a></li>
+                <li class="dropdown-item"><a>Type5</a></li>
+                <li class="dropdown-item"><a>Type6</a></li>
+                <!-- this is where define type-->
                 </ul>
-            </button>
-            <input class="search-bar" placeholder="Search" type="text" />
-            <div class="search-button">
-                <img class="search-icon" src="~/icons/ico_search_white.svg" />
+                </button>*@
+                <input class="search-bar" placeholder="Search" type="text" name="searchString" />
+                <button type="submit" class="search-button">
+                    <img class="search-icon" src="~/icons/ico_search_white.svg" />
+                </button>
             </div>
-        </div>
+        </form>
         <div class="right-section">
             <form asp-controller="Cart" asp-action="Index" method="get">
                 <button class="cart-button">

@@ -18,6 +18,19 @@ namespace OnlineBookShop.Controllers
             return View(entity);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(string searchString)
+        {
+            if (searchString == null)
+            {
+                var bookTypes = unitOfWork.GetRepository<Author>().GetAll();
+                return View(bookTypes);
+            }
+            var result = unitOfWork.GetAuthorRepository().Finding(searchString);
+            return View(result);
+        }
+
 
         [HttpGet]
         public IActionResult Create()

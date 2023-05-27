@@ -48,8 +48,8 @@
                     <div>@Model.Cost</div>
                 </div>
                 <div class="cart-button-purchase-path">
-                    <form>
-                        <button>Purchase</button>
+                    <form asp-controller="Order" asp-action="Create" method="get">
+                        <button type="submit">Purchase</button>
                     </form>
                 </div>
                 

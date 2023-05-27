@@ -20,16 +20,13 @@ namespace OnlineBookShop.Controllers
             Debug.WriteLine(currentUserType);
             if (currentUserType == 1 || currentUserType == 0)
             {
-                return RedirectToAction("Index", "Dashboard");
-            }
-            else if (currentUserType == 2)
-            {
-                return RedirectToAction("Index", "Home");
+                return View("Index", "Dashboard");
             }
             return View();
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(Staff staff)
         {
             IEnumerable<Staff> entity = unitOfWork.GetRepository<Staff>().GetAll();

@@ -34,10 +34,16 @@ namespace OnlineBookShop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(string search)
+        public IActionResult Index(string searchString)
         {
-            var entity = unitOfWork.GetRepository<Book>().GetAll();
-            return View(entity);
+            if (searchString == null)
+            {
+                var entity = unitOfWork.GetRepository<Book>().GetAll();
+                return View(entity);
+            }
+
+            var result = unitOfWork.GetBookRepository().FindingByName(searchString);
+            return View(result);
         }
 
         public IActionResult Detail(int id)
@@ -62,6 +68,7 @@ namespace OnlineBookShop.Controllers
                 Price = (book.IsSale == true) ? (book.Price) : (book.Price * (100 - book.SalePercent) / 100),
             };
             unitOfWork.GetCartRepository().AddProductToCart(cart.CartID, id, cartItem);
+            unitOfWork.SaveChanges();
             return RedirectToAction("Index", "Cart");
         }
 

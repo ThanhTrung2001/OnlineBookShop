@@ -20,16 +20,18 @@
     </div>
     <div class="product-list-bottom-section">
         <div class="product-list-showing-section">
-            <div class="product-list-filter-bar">
-                <div style="display:flex; flex-direction:row; align-items:center;">
-                    <label class="control-label"></label>
-                    <input style="width:200px;" class="dashboard-date-pickup form-control" type="date" name="datepicker" />
+            <form asp-action="Index" method="post">
+                <div class="product-list-filter-bar">
+                    <div style="display:flex; flex-direction:row; align-items:center;">
+                        <label class="control-label"></label>
+                        <input style="width:200px;" class="dashboard-date-pickup form-control" type="date" name="datepicker" />
+                    </div>
+                    <div class="product-search-submit-path">
+                        <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
+                        <input type="submit" class="product-search-submit-button" value="Search">
+                    </div>
                 </div>
-                <div class="product-search-submit-path">
-                    <img src="/icons/search_60px_black.png" class="product-search-submit-icon" />
-                    <input type="submit" class="product-search-submit-button" value="Search">
-                </div>
-            </div>
+            </form>
             <div class="product-list-showing-container">
                 <div class="product-list-table-scroll">
                     <table class="product-list-showing">
@@ -45,21 +47,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @*@foreach (var staff in Model)*@
-                            @for(int i = 0; i < 1; i++)
+                            @foreach(var order in Model)
                             {
+                                var name = "";
+                                foreach(var user in ViewBag.User)
+                                {
+                                    if (order.UserID == user.UserID)
+                                    {
+                                        name = user.UserName;
+                                    }
+                                }
                                 <tr class="body-row">
-                                    <td class="product-id-showing">1</td>
-                                    <td class="product-name-showing">1</td>
-                                    <td class="product-author-showing">1</td>
-                                    <td class="product-author-showing">1</td>
-                                    <td class="product-author-showing">1 @*@staff.ContractStartDate.ToString("dd/M/yyyy")*@</td>
-                                    <td class="product-number-showing">1 @*@staff.ContractEndDate.Date.ToString("dd/M/yyyy")*@</td>
+                                    <td class="product-id-showing">@order.OrderID</td>
+                                    <td class="product-name-showing">@name</td>
+                                    <td class="product-author-showing">@order.OrderDate</td>
+                                    <td class="product-author-showing">@order.TotalAmount</td>
+                                    <td class="product-author-showing">@order.PurchaseType</td>
+                                    <td class="product-number-showing">@order.DeliveryStatus</td>
                                     <td class="product-action-showing">
                                         <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
                                         <ul class="product-action-dropdown-menu">
-                                            <li class="dropdown-item"><a asp-controller="Bill" asp-action="Detail" asp-route-id="">View</a></li>
-                                            <form asp-action="Delete" asp-route-id="">
+                                            <li class="dropdown-item"><a asp-controller="Bill" asp-action="Detail" asp-route-id="@order.OrderID">View</a></li>
+                                            <form asp-action="Delete" asp-route-id="@order.OrderID" method="post">
                                             <li class="dropdown-item">
                                                 <button class="delete-dropdown" type="submit">Delete</button>
                                             </li>

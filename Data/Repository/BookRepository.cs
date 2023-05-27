@@ -9,9 +9,19 @@ namespace OnlineBookShop.Data.Repository
         {
         }
 
-        public IEnumerable<Book> Finding(string name, int type, int author)
+        public IEnumerable<Book> FindingByAuthor(int authorID)
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<Book>().Where(book => book.AuthorID == authorID).ToList();
+        }
+
+        public IEnumerable<Book> FindingByBookType(int bookTypeID)
+        {
+            return _dbContext.Set<Book>().Where(book => book.BookTypeID == bookTypeID).ToList();
+        }
+
+        public IEnumerable<Book> FindingByName(string name)
+        {
+            return _dbContext.Set<Book>().Where(book => book.Title.Contains(name)).ToList();
         }
     }
 }

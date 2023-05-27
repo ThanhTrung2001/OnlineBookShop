@@ -1,0 +1,27 @@
+﻿@{
+    var bookItem = new Book() { };
+    foreach (var item in ViewBag.BookList)
+    {
+        if(item.BookID == Model.BookID)
+        {
+            bookItem = item;
+        }
+    }
+}
+@model CartItem
+<li>
+    <div class="user-order-item-card">
+        <div class="user-order-card-info">
+            <div class="user-order-item-image">
+                <img style="height:35px" src="@bookItem.ImageLink" />
+            </div>
+            <div class="user-order-name-number">
+                <div>@bookItem.Title</div>
+                <div>x @Model.Quantity</div>
+            </div>
+        </div>
+        <div class="user-order-price-path">
+            <div>@Model.Price</div>
+        </div>
+    </div>
+</li>

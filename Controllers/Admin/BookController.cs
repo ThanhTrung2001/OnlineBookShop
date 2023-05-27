@@ -21,6 +21,44 @@ namespace OnlineBookShop.Controllers
             return View(entity);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Index(string searchString, int bookType, int bookAuthor)
+        {
+            ViewBag.BookType = unitOfWork.GetRepository<BookType>().GetAll();
+            ViewBag.BookAuthor = unitOfWork.GetRepository<Author>().GetAll();
+            var resultName = unitOfWork.GetRepository<Book>().GetAll();
+            var resultAuthor = unitOfWork.GetRepository<Book>().GetAll();
+            var resultType = unitOfWork.GetRepository<Book>().GetAll();
+            if (bookType != 0)
+            {
+                resultType = unitOfWork.GetBookRepository().FindingByBookType(bookType);
+            }
+            if (bookAuthor != 0)
+            {
+                resultAuthor = unitOfWork.GetBookRepository().FindingByAuthor(bookAuthor);
+            }
+            if (searchString != null)
+            {
+                resultName = unitOfWork.GetBookRepository().FindingByName(searchString);
+            }
+            List<Book> books = new List<Book>();
+            foreach (var itemName in resultName)
+            {
+                foreach (var itemType in resultType)
+                {
+                    foreach (var itemAuthor in resultAuthor)
+                    {
+                        if (itemName.BookID == itemType.BookID && itemType.BookID == itemAuthor.BookID)
+                        {
+                            books.Add(itemName);
+                        }
+                    }
+                }
+            }
+            return View(books);
+        }
+
         [HttpGet]
         public IActionResult Create()
         {

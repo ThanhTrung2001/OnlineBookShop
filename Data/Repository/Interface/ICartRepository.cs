@@ -7,5 +7,6 @@ namespace OnlineBookShop.Data.Repository
         public Cart GetByUserId(int id);
         public IEnumerable<CartItem> GetItemListByCartId(int id);
         public void AddProductToCart(int cartID, int bookID, CartItem cartItem);
+        public void ResetCartAfterOrder(int cartID);
     }
 }

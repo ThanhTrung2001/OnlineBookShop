@@ -22,10 +22,6 @@ namespace OnlineBookShop.Controllers
             {
                 return RedirectToAction("Login", "StaffSession");
             }
-            else if (currentUserType != 0 || currentUserType != 1)
-            {
-                return RedirectToAction("Login", "Session");
-            }
             return View();
         }
     }
