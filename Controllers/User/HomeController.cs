@@ -33,6 +33,7 @@ namespace OnlineBookShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(string search)
         {
             var entity = unitOfWork.GetRepository<Book>().GetAll();
@@ -43,6 +44,25 @@ namespace OnlineBookShop.Controllers
         {
             var entity = unitOfWork.GetRepository<Book>().GetById(id);
             return View(entity);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //Add To Cart
+        public IActionResult Detail(int id, int amountInput)
+        {
+            int currentUserID = (int)HttpContext.Session.GetInt32("CurrentUserID");
+            var cart = unitOfWork.GetCartRepository().GetByUserId(currentUserID);
+            var book = unitOfWork.GetBookRepository().GetById(id);
+            var cartItem = new CartItem()
+            {
+                CartID = cart.CartID,
+                BookID = id,
+                Quantity = amountInput,
+                Price = (book.IsSale == true) ? (book.Price) : (book.Price * (100 - book.SalePercent) / 100),
+            };
+            unitOfWork.GetCartRepository().AddProductToCart(cart.CartID, id, cartItem);
+            return RedirectToAction("Index", "Cart");
         }
 
         public IActionResult Privacy()

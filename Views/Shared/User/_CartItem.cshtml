@@ -1,19 +1,29 @@
-﻿@model CartItem
+﻿@{
+    var bookItem = new Book() { };
+    foreach (var item in ViewBag.BookList)
+    {
+        if(item.BookID == Model.BookID)
+        {
+            bookItem = item;
+        }
+    }
+}
+@model CartItem
 
 <tr class="cart-body">
     <td class="product-image-showing">
-        <img class="product-image-showing" src="https://i.imgur.com/qywe4pq.jpg" style="height:25px;" />
+        <img class="product-image-showing" src="@bookItem.ImageLink" style="height:25px;" />
     </td>
-    <td class="product-name-showing">Name</td>
-    <td class="product-price-showing">10.000 đ</td>
+    <td class="product-name-showing">@bookItem.Title</td>
+    <td class="product-price-showing">@Model.Price</td>
     <td class="product-number-showing">
         <button>-</button>
-        <input type="text" value="1">
+        <input type="text" asp-for="Quantity">
         <button>+</button>
     </td>
     <td class="product-action-showing">
-        <form asp-controller="Cart" asp-action="Delete">
-            <button>
+        <form asp-controller="Cart" asp-action="Delete" asp-route-id="@Model.CartItemID">
+            <button type="submit">
                 <img src="/icons/trash_48px.png" />
             </button>
         </form>

@@ -55,7 +55,9 @@
                                     <td class="product-action-showing">
                                         <img class="product-action-hoverable-image" src="/icons/menu_vertical_100px.png" />
                                         <ul class="product-action-dropdown-menu">
-                                            <li class="dropdown-item"><a asp-controller="BookType" asp-action="Edit" asp-route-id="@bookType.BookTypeID">Edit</a></li>
+                                            <li class="dropdown-item">
+                                                <a asp-controller="BookType" asp-action="Edit" asp-route-id="@bookType.BookTypeID">Edit</a>
+                                            </li>
                                             <form asp-action="Delete" asp-route-id="@bookType.BookTypeID">
                                             <li class="dropdown-item">
                                                 <button class="delete-dropdown" type="submit">Delete</button>

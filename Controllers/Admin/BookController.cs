@@ -22,12 +22,6 @@ namespace OnlineBookShop.Controllers
         }
 
         [HttpGet]
-        public IActionResult Detail()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.BookType = unitOfWork.GetRepository<BookType>().GetAll();

@@ -14,6 +14,7 @@ namespace OnlineBookShop.Data.UnitOfWork
         OrderRepository GetOrderRepository();
         StaffRepository GetStaffRepository();
         UserRepository GetUserRepository();
+        CartRepository GetCartRepository();
         int SaveChanges();
     }
 }

@@ -61,6 +61,11 @@ namespace OnlineBookShop.Data.UnitOfWork
             return new UserRepository(context);
         }
 
+        public CartRepository GetCartRepository()
+        {
+            return new CartRepository(context);
+        }
+
         public int SaveChanges()
         {
             return context.SaveChanges();
@@ -70,5 +75,7 @@ namespace OnlineBookShop.Data.UnitOfWork
         {
             context.Dispose();
         }
+
+
     }
 }

@@ -13,11 +13,13 @@
         </div>
         <div class="user-address-card-action">
             <form asp-controller="Address" asp-action="SelectDefault">
-                <a style="color:#C92127">Make default</a>
+                <button class="make-default-address-button" style="color:#C92127">Make default</button>
             </form>
-            <form asp-controller="Address" asp-action="Delete" method="post">
-                <a type="submit">Delete</a>
+            <a asp-controller="Address" asp-action="Edit" asp-route-id="@Model.UserAddressID" type="submit">Edit</a>
+            <form asp-controller="Address" asp-action="Delete" asp-route-id="@Model.UserAddressID" method="post">
+                <button class="delete-address-button" type="submit">Delete</button>
             </form>
+
         </div>
     </div>
 </li>

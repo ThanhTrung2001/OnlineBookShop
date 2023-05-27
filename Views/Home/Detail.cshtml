@@ -4,56 +4,58 @@
 }
 
 <div class="book-detail">
-    <div class="detail-top-section">
-        <div class="detail-top-section__left">
-            <img class="detail-img" src="@Model.ImageLink" />
-        </div>
-        <div class="detail-top-section__right">
-            <div class="detail-name-container">
-                <div class="detail-name">@Model.Title</div>
-                @if(Model.IsSale != false)
-                {
-                    <div class="detail__is-sale">@Model.SalePercent</div>
-                }
+    <form asp-action="Detail" asp-route-id="@Model.BookID" method="post">
+        <div class="detail-top-section">
+            <div class="detail-top-section__left">
+                <img class="detail-img" src="@Model.ImageLink" />
             </div>
-            <div class="detail-property-container">
-                <div class="detail-property">
-                    <div class="detail-property-type">Type</div>
-                    <div class="detail-property-author">Author name</div>
+            <div class="detail-top-section__right">
+                <div class="detail-name-container">
+                    <div class="detail-name">@Model.Title</div>
+                    @if (Model.IsSale != false)
+                    {
+                        <div class="detail__is-sale">@Model.SalePercent</div>
+                    }
                 </div>
-            </div>
-            <div class="price-and-amount-container">
-                @if (Model.IsSale == false)
-                {
-                    <div class="detail-price">
-                        @Model.Price.ToString("0") đ
-                    </div>
-                }
-                else
-                {
-                    var newPrice = Model.Price * (100 - Model.SalePercent) / 100;
-                    <div class="detail-price">
-                        @newPrice.ToString("0") đ
-                    </div>
-                }
-                <div class="detail-amount-container">
-                    <div class="detail-amount">
-                        <button class="detail-minus-button">
-                            <img class="detail-minus-icon" src="~/icons/minus_48px.png" onclick="decreaseQuantity()"/>
-                        </button>
-                        <input class="detail-amount-number" type="number" value="1" id="amount-input" />
-                        <button class="detail-plus-button">
-                            <img class="detail-plus-icon" src="~/icons/Plus_48px.png" onclick="increaseQuantity()" />
-                        </button>
+                <div class="detail-property-container">
+                    <div class="detail-property">
+                        <div class="detail-property-type">Type</div>
+                        <div class="detail-property-author">Author name</div>
                     </div>
                 </div>
-            </div>
-            <div class="detail-button">
-                <button class="detail-cart-button">Add To Cart</button>
-                <button class="detail-buy-button">Buy</button>
+                <div class="price-and-amount-container">
+                    @if (Model.IsSale == false)
+                    {
+                        <div class="detail-price">
+                            @Model.Price.ToString("0") đ
+                        </div>
+                    }
+                    else
+                    {
+                        var newPrice = Model.Price * (100 - Model.SalePercent) / 100;
+                        <div class="detail-price">
+                            @newPrice.ToString("0") đ
+                        </div>
+                    }
+                    <div class="detail-amount-container">
+                        <div class="detail-amount">
+                            <button class="detail-minus-button">
+                                <img class="detail-minus-icon" src="~/icons/minus_48px.png" onclick="decreaseQuantity()" />
+                            </button>
+                            <input class="detail-amount-number" type="number" value="1" name="amountInput" />
+                            <button class="detail-plus-button">
+                                <img class="detail-plus-icon" src="~/icons/Plus_48px.png" onclick="increaseQuantity()" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-button">
+                    <button class="detail-cart-button" type="submit">Add To Cart</button>
+                    <button class="detail-buy-button">Buy</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 

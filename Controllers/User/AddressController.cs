@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineBookShop.Data.UnitOfWork;
+using OnlineBookShop.Models;
 
 namespace OnlineBookShop.Controllers
 {
@@ -23,5 +24,43 @@ namespace OnlineBookShop.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(UserAddress value)
+        {
+            value.UserID = (int)HttpContext.Session.GetInt32("CurrentUserID");
+            unitOfWork.GetRepository<UserAddress>().Insert(value);
+            unitOfWork.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var entity = unitOfWork.GetUserAddressRepository().GetById(id);
+            unitOfWork.SaveChanges();
+            return View("Create", entity);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(UserAddress value)
+        {
+            unitOfWork.GetUserAddressRepository().Update(value);
+            unitOfWork.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id)
+        {
+            var address = unitOfWork.GetUserAddressRepository().GetById(id);
+            unitOfWork.GetUserAddressRepository().Delete(address);
+            unitOfWork.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
