@@ -28,8 +28,8 @@
   <li>IDE : Visual Studio</li>
   <li>Database : SQLServer</li>
   <li>Framework : ASP.NET MVC 6.0</li>
-  <li>Ngôn ngữ lập trình : C# .NET</li>
-  <li>Ngôn ngữ Markup : HTML, CSS, JS</li>
+  <li>Programming Language : C# .NET</li>
+  <li>Markup Language : HTML, CSS, JS</li>
  </ul>
  
 ## 3 BACKEND/DATABASE/DIAGRAM
