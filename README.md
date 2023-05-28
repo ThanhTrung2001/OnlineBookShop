@@ -1,10 +1,5 @@
 # ONLINE BOOK SHOP (Ecommerce web + Management)
 
-<p align="center">
-  <img width="460" height="300" src="">
-</p>
-
-
 ## 1 FUNCTION
 
 ### 1.1 User
@@ -18,9 +13,9 @@
 ### 1.2 Admin & Staff
 <ul>
 <li>Login - Logout</li>
-<li>Manage Book, BookType, Author : CRUD</li>
-<li>Manage Staff Account : CRUD</li>
-<li>Manage Customer : RUD</li>
+<li>Manage Book, BookType, Author : CRUD, Search</li>
+<li>Manage Staff Account : CRUD, Search</li>
+<li>Manage Customer : RUD, Search</li>
 </ul>
 
 ## 2 LIBRARY & TECHNOLOGY
@@ -38,35 +33,41 @@
   <img width="700" height="700" src="https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/1d3ed45a-57c4-404b-a7e2-65a950f4aa26">
   <li>UseCase Diagram -Admin & Staff </li>
   <img width="700" height="700" src="https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/1d3ed45a-57c4-404b-a7e2-65a950f4aa26">
-  <li>Class Diagram</li>
-<!--   <img width="800" height="500" src="https://user-images.githubusercontent.com/75150646/124386092-ccc3f700-dd02-11eb-9ca5-add65af26f32.png"> -->
+  <li>Class Diagram Preview (Have some changes when doing project)</li>
+  <img width="700" height="700" src="https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/9311f40e-0fa4-4ac6-896a-f51c9ec0de82">
   <li>Architecture Diagram</li>
-  
   <img width="800" height="600" src="https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/6998a653-9569-4161-ba3c-0395d9b6bb09">
-</ul>  
-## 4 SCREENSHOT
-## 4.1 USER PART
-<ul>
-  
 </ul>
-<!--   <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124388495-6d1f1900-dd0d-11eb-93f5-68bd9fa23f04.jpg>
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124388499-701a0980-dd0d-11eb-8dbb-fd95ac972c72.jpg>
-  <li>Màn hình chính / danh mục + tìm kiếm</li> 
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124388728-49a89e00-dd0e-11eb-9d9e-9ba9ab26e6ce.jpg>
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124388969-5d083900-dd0f-11eb-8ed7-62ad5fc01910.jpg>
-  <li>Màn hình các địa điểm nổi tiếng + ví dụ Sài Gòn </li>
-   <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389134-06e7c580-dd10-11eb-8722-9f917ac21b4d.jpg>
-   <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389156-20890d00-dd10-11eb-8438-acd523d41c56.jpg>
-  <li>Màn hình bài Review + Map</li>
-    <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389195-4adaca80-dd10-11eb-889c-ffcfd0071c9d.jpg>
-    <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389209-5b8b4080-dd10-11eb-96e0-767cb3058e19.jpg>
-  <li>Màn hình bài viết Yêu thích</li>
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389246-7d84c300-dd10-11eb-9b67-40fb2fff420e.jpg>
-  <li>Màn hình Profile + Edit Profile(Avatar + FullName,Email + Password)</li>
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389301-ae64f800-dd10-11eb-999a-95996f159e89.jpg>
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389315-bc1a7d80-dd10-11eb-904f-08a4d6dca0bd.jpg>
-  <img width="300" height="650" src=https://user-images.githubusercontent.com/75150646/124389335-cfc5e400-dd10-11eb-9676-9a232fcb74f2.jpg> -->
-## 4.2 STAFF PART  
+
+## 4 SCREENSHOT
+
+### 4.1 USER PART
+
 <ul>
-  
+  <li>Login/SignUp</li>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/688088ac-71b7-4c40-93b7-59b668203d7d>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/9386fb86-961a-4328-a850-c8d72599cdf9>
+  <li>Profile</li>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/ef772ade-876e-4ac5-8f81-92ca47eb80d7>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/ba3ba7cd-8ad9-4d1d-869b-32767d681502>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/d1cd4345-ba96-4d26-9a7e-05b00f15b9a5>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/b6a0e5a5-e9a2-48c3-b752-a44d3b7b5869>
+  <li>Cart</li>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/290c46b7-48ac-4779-854d-0b1d484e7e61>
+    <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/9159388f-c7dd-4446-9a07-4eb948b472d2>
+</ul>
+
+### 4.2 STAFF PART  
+
+<ul>
+   <li>Login</li>
+      <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/873560b3-605b-440b-8f22-94de352f5ebb>
+   <li>Management View </li>
+      <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/605f324d-3205-4d77-a081-76414218b847>
+  <li>Management Book(BookType Author, Account & Staff similar ) </li>
+      <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/414bbf13-dee1-4240-b137-d67c7db90ff2>
+      <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/3c8c25d6-6dbd-456e-8078-8dc8cf3fc1db>
+  <li>Management Order </li>
+      <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/d75f8a6d-20fb-4979-ae8a-c8ca4459c53c>
+      <img width="700" height="500" src=https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/bd26849c-11a8-43be-9ada-7485bf3c414f>
 </ul>
