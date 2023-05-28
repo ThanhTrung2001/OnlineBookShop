@@ -25,6 +25,7 @@
   <li>Framework : ASP.NET MVC 6.0</li>
   <li>Programming Language : C# .NET</li>
   <li>Markup Language : HTML, CSS, JS</li>
+  <li>Some Techniques use : Unit of Work, Repository Pattern</li>
  </ul>
  
 ## 3 BACKEND/DATABASE/DIAGRAM
