@@ -37,7 +37,7 @@
   <li>UseCase Diagram - User </li>
   <img width="700" height="700" src="https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/1d3ed45a-57c4-404b-a7e2-65a950f4aa26">
   <li>UseCase Diagram -Admin & Staff </li>
-  
+  <img width="700" height="700" src="https://github.com/ThanhTrung2001/OnlineBookShop/assets/75150646/1d3ed45a-57c4-404b-a7e2-65a950f4aa26">
   <li>Class Diagram</li>
 <!--   <img width="800" height="500" src="https://user-images.githubusercontent.com/75150646/124386092-ccc3f700-dd02-11eb-9ca5-add65af26f32.png"> -->
   <li>Architecture Diagram</li>
