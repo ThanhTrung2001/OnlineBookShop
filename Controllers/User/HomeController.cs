@@ -60,6 +60,10 @@ namespace OnlineBookShop.Controllers
             int currentUserID = (int)HttpContext.Session.GetInt32("CurrentUserID");
             var cart = unitOfWork.GetCartRepository().GetByUserId(currentUserID);
             var book = unitOfWork.GetBookRepository().GetById(id);
+            if (amountInput > book.Stock)
+            {
+                return View(book);
+            }
             var cartItem = new CartItem()
             {
                 CartID = cart.CartID,

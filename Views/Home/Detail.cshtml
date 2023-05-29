@@ -1,6 +1,11 @@
 ﻿@model Book
 @{
     Layout = "_UserLayout";
+    int amountSelect = 1;
+    if(Model.Stock == 0)
+    {
+        amountSelect = 0;
+    }
 }
 
 <div class="book-detail">
@@ -14,7 +19,14 @@
                     <div class="detail-name">@Model.Title</div>
                     @if (Model.IsSale != false)
                     {
-                        <div class="detail__is-sale">@Model.SalePercent</div>
+                        if(amountSelect == 0)
+                        {
+                            <div class="detail__is-sale">Soldout</div>
+                        }
+                        else
+                        {
+                            <div class="detail__is-sale">@Model.SalePercent</div>
+                        }
                     }
                 </div>
                 <div class="detail-property-container">
@@ -42,7 +54,7 @@
                             <button class="detail-minus-button">
                                 <img class="detail-minus-icon" src="~/icons/minus_48px.png" onclick="decreaseQuantity()" />
                             </button>
-                            <input class="detail-amount-number" type="number" value="1" name="amountInput" />
+                            <input class="detail-amount-number" type="number" value="@amountSelect" name="amountInput" />
                             <button class="detail-plus-button">
                                 <img class="detail-plus-icon" src="~/icons/Plus_48px.png" onclick="increaseQuantity()" />
                             </button>
@@ -50,7 +62,14 @@
                     </div>
                 </div>
                 <div class="detail-button">
-                    <button class="detail-cart-button" type="submit">Add To Cart</button>
+                    @if(Model.Stock == 0)
+                    {
+                        <button class="detail-cart-button can-press-button">Add To Cart</button>
+                    }
+                    else
+                    {
+                        <button class="detail-cart-button" type="submit">Add To Cart</button>
+                    }
                     <button class="detail-buy-button">Buy</button>
                 </div>
             </div>

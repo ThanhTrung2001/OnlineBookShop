@@ -63,6 +63,9 @@ namespace OnlineBookShop.Controllers
                     Quantity = item.Quantity,
                     Price = item.Price,
                 };
+                var book = unitOfWork.GetBookRepository().GetById(item.BookID);
+                book.Stock -= item.Quantity;
+                unitOfWork.GetBookRepository().Update(book);
                 unitOfWork.GetOrderRepository().AddOrderItems(newItem);
                 unitOfWork.GetRepository<CartItem>().Delete(item);
             }
