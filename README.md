@@ -1,5 +1,10 @@
 # ONLINE BOOK SHOP (Ecommerce web + Management)
 
+## 0 OVERVIEW
+
+<li>master branch - normal running : https://github.com/ThanhTrung2001/OnlineBookShop </li>
+<li>docker_compose_build branch - docker running : https://github.com/ThanhTrung2001/OnlineBookShop/tree/docker_compose_build </li>
+
 ## 1 FUNCTION
 
 ### 1.1 User
@@ -23,9 +28,10 @@
   <li>IDE : Visual Studio</li>
   <li>Database : SQLServer</li>
   <li>Framework : ASP.NET MVC 6.0</li>
+  <li>Running : DockerDesktop (branch docker_compose_build)</li>
   <li>Programming Language : C# .NET</li>
   <li>Markup Language : HTML, CSS, JS</li>
-  <li>Some Techniques use : Unit of Work, Repository Pattern</li>
+  <li>Some Techniques use : Unit of Work, Repository Pattern, Docker Desktop</li>
  </ul>
  
 ## 3 BACKEND/DATABASE/DIAGRAM
