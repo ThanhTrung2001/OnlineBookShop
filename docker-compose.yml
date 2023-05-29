@@ -1,0 +1,34 @@
+version: '3.4'
+
+networks:
+  demoonlinebookshop:
+
+services:
+  onlinebookdb:
+    container_name: app-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+    - 5002:1433
+    environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=Kamisql@12345
+    volumes:
+      - ./data-protection-keys:/root/.aspnet/DataProtection-Keys
+    networks:
+    - demoonlinebookshop
+  onlinebookshop:
+    container_name: online-book-shop
+    image: ${DOCKER_REGISTRY-}onlinebookshop
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - 5001:80
+    depends_on:
+    - onlinebookdb
+    environment:
+    - DB_HOST=onlinebookdb
+    - DB_NAME=OnlineBookShop
+    - DB_SA_PASSWORD=Kamisql@12345
+    networks:
+    - demoonlinebookshop
