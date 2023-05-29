@@ -1,4 +1,5 @@
 # ONLINE BOOK SHOP (Ecommerce web + Management)
+An Ecommerce & Management website by ASP.NET MVC 6.0, SQL Server combined with Docker
 
 ## 0 OVERVIEW
 
