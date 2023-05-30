@@ -24,7 +24,7 @@ An Ecommerce & Management website by ASP.NET MVC 6.0, SQL Server combined with D
   <li>IDE : Visual Studio</li>
   <li>Database : SQLServer</li>
   <li>Framework : ASP.NET MVC 6.0</li>
-  <li>Running : DockerDesktop (branch docker_compose_build)</li>
+  <li>Running : Docker / Normal with SQL Server/li>
   <li>Programming Language : C# .NET</li>
   <li>Markup Language : HTML, CSS, JS</li>
   <li>Some Techniques use : Unit of Work, Repository Pattern, Docker Desktop</li>
