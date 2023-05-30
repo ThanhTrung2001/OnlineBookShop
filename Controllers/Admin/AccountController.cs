@@ -76,7 +76,7 @@ namespace OnlineBookShop.Controllers.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddressCreate(UserAddress address)
+        public IActionResult AddressCreate(UserAddress userAddress)
         {
             return View();
         }
@@ -88,12 +88,12 @@ namespace OnlineBookShop.Controllers.Admin
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult AddressEdit(UserAddress address)
+        public IActionResult AddressEdit(UserAddress userAddress)
         {
             return View();
         }
 
-        public IActionResult AddressDelete(UserAddress address)
+        public IActionResult AddressDelete(UserAddress userAddress)
         {
             return View();
         }

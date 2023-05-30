@@ -7,8 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
+var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=sa;Password={dbPassword};Encrypt=False";
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-  builder.Configuration.GetConnectionString("DefaultConnection")
+  ////dockercompose
+  connectionString
+  //builder.Configuration.GetConnectionString("DefaultConnection")
   ));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
@@ -44,3 +51,9 @@ app.MapControllerRoute(
     pattern: "{controller=Session}/{action=Login}/{id?}");
 
 app.Run();
+
+//In Docker, run port https:localhost:connect_port like 5002
+//thí line will generate container follow dockercompose file
+//docker - compose - f "docker-compose.debug.yml" up - d
+
+//end
