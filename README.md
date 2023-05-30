@@ -1,11 +1,6 @@
 # ONLINE BOOK SHOP (Ecommerce web + Management)
 An Ecommerce & Management website by ASP.NET MVC 6.0, SQL Server combined with Docker
 
-## 0 OVERVIEW
-
-<li>master branch - normal running : https://github.com/ThanhTrung2001/OnlineBookShop </li>
-<li>docker_compose_build branch - docker running : https://github.com/ThanhTrung2001/OnlineBookShop/tree/docker_compose_build </li>
-
 ## 1 FUNCTION
 
 ### 1.1 User
