@@ -19,7 +19,6 @@ namespace OnlineBookShop.Controllers
         public IActionResult Index()
         {
             int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
-            Debug.WriteLine(currentUserType);
             if (currentUserType == null)
             {
                 return RedirectToAction("Login", "Session");

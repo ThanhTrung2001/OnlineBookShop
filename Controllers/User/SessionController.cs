@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineBookShop.Data.UnitOfWork;
 using OnlineBookShop.Models;
+using OnlineBookShop.Services;
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace OnlineBookShop.Controllers
 {
@@ -17,16 +19,34 @@ namespace OnlineBookShop.Controllers
 
         public IActionResult Login()
         {
-            int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
-            Debug.WriteLine(currentUserType);
-            if (currentUserType == 2)
+            string? currentToken = HttpContext.Session.GetString("Token");
+            if (currentToken != null && UserService.IsTokenExpired(currentToken) == false)
             {
-                return RedirectToAction("Index", "Home");
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(currentToken);
+                Debug.WriteLine(jwtToken);
+                // Retrieve the UserID and UserType claims from the token
+                var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "UserID");
+                var userTypeClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "UserType");
+                // Get the string values
+                var userIdReceive = userIdClaim.Value;
+                var userTypeReceive = userTypeClaim.Value;
+                if (userIdReceive != null && userTypeReceive != null)
+                {
+                    //Exchange to int
+                    int userId = int.Parse(userIdReceive);
+                    int userType = int.Parse(userTypeReceive);
+                    HttpContext.Session.SetString("Token", currentToken);
+                    HttpContext.Session.SetInt32("CurrentUserID", userId);
+                    HttpContext.Session.SetInt32("CurrentUserType", userType);
+                    if (userType != 2)
+                    {
+                        return RedirectToAction("Index", "Dashboard");
+                    }
+                    return RedirectToAction("Index", "Home");
+                }
             }
-            else if (currentUserType == 1 || currentUserType == 0)
-            {
-                return RedirectToAction("Index", "Dashboard");
-            }
+            HttpContext.Session.Clear();
             return View();
         }
 
@@ -35,29 +55,61 @@ namespace OnlineBookShop.Controllers
         public IActionResult Login(User user)
         {
             IEnumerable<User> entity = unitOfWork.GetRepository<User>().GetAll();
-            foreach (var member in entity)
+            string token = UserService.GenerateJWTToken(user.Email, user.Password, entity);
+            Debug.WriteLine(token);
+            if (token != null)
             {
-                if (user.Email == member.Email && user.Password == member.Password)
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(token);
+                // Retrieve the UserID and UserType claims from the token
+                var userTypeClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "UserType");
+                var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "UserID");
+                var userIdReceive = userIdClaim.Value;
+                var userTypeReceive = userTypeClaim.Value;
+                Debug.WriteLine(UserService.IsTokenExpired(token));
+                Debug.WriteLine(userIdReceive + " , " + userTypeReceive);
+                if (userIdReceive != null && userTypeReceive != null)
                 {
-                    HttpContext.Session.SetInt32("CurrentUserID", member.UserID);
-                    HttpContext.Session.SetInt32("CurrentUserType", member.UserType);
+                    int userId = int.Parse(userIdReceive);
+                    int userType = int.Parse(userTypeReceive);
+                    HttpContext.Session.SetString("Token", token);
+                    HttpContext.Session.SetInt32("CurrentUserID", userId);
+                    HttpContext.Session.SetInt32("CurrentUserType", userType);
                     return RedirectToAction("Index", "Home");
                 }
             }
+
             return View();
         }
 
         public IActionResult SignUp()
         {
-            int? currentUserType = HttpContext.Session.GetInt32("CurrentUserType");
-            Debug.WriteLine(currentUserType);
-            if (currentUserType == 2)
+            string? currentToken = HttpContext.Session.GetString("Token");
+            if (currentToken != null && UserService.IsTokenExpired(currentToken) == false)
             {
-                return RedirectToAction("Index", "Home");
-            }
-            else if (currentUserType == 1 || currentUserType == 0)
-            {
-                return RedirectToAction("Index", "Dashboard");
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(currentToken);
+                Debug.WriteLine(jwtToken);
+                // Retrieve the UserID and UserType claims from the token
+                var userIdClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "UserID");
+                var userTypeClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "UserType");
+                // Get the string values
+                var userIdReceive = userIdClaim.Value;
+                var userTypeReceive = userTypeClaim.Value;
+                if (userIdReceive != null && userTypeReceive != null)
+                {
+                    //Exchange to int
+                    int userId = int.Parse(userIdReceive);
+                    int userType = int.Parse(userTypeReceive);
+                    HttpContext.Session.SetString("Token", currentToken);
+                    HttpContext.Session.SetInt32("CurrentUserID", userId);
+                    HttpContext.Session.SetInt32("CurrentUserType", userType);
+                    if (userType != 2)
+                    {
+                        return RedirectToAction("Index", "Dashboard");
+                    }
+                    return RedirectToAction("Index", "Home");
+                }
             }
             return View();
         }
@@ -93,6 +145,7 @@ namespace OnlineBookShop.Controllers
             }
             return View();
         }
+
 
         public IActionResult Logout()
         {
