@@ -1,7 +1,10 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using OnlineBookShop.Data;
 using OnlineBookShop.Data.Repository;
 using OnlineBookShop.Data.UnitOfWork;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +17,8 @@ var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User ID=s
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
   ////dockercompose
-  connectionString
-  //builder.Configuration.GetConnectionString("DefaultConnection")
+  //connectionString
+  builder.Configuration.GetConnectionString("DefaultConnection")
   ));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
@@ -27,6 +30,26 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = "https://localhost:7075", // Replace with your own issuer https://localhost:5001
+                ValidAudience = "https://localhost:7075", // Replace with your own audience https://localhost:5001
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_secret_key")) // Replace with your own secret key
+            };
+        });
+
+builder.Services.AddAuthorization();
+
+//Singleton
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,6 +64,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

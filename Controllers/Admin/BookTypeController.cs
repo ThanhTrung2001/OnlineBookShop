@@ -4,6 +4,7 @@ using OnlineBookShop.Models;
 
 namespace OnlineBookShop.Controllers
 {
+
     public class BookTypeController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
